@@ -1,0 +1,2 @@
+ID,ID_Restaurante,Recibe_pedido,Cierra_pedido,Lunes,Martes,Miercoles,Jueves,Viernes,Sabados,Domingos,Feriados
+1,1,11:00,1,"12:00 22:00","12:00 22:00","12:00 22:00","12:00 22:00","12:00 23:30","12:00 23:30","12:00 22:00","12:00 22:00"

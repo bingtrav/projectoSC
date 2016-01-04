@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='css/skeleton.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <span class="menu-responsive">MENU</span>
+    <div class="holis">
+   <nav class="main-nav">
+            <ul class="clearfix">
+                <li> <a href="index.html">Home</a></li>
+                <li><a href="como-pedir.html">Como pedir</a></li>
+                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                 <li class="no-show profile-nav">
+                    <div>
+<img src="img/users/default.jpg" width="40">
+<span></span></br>
+</div>
+<div class="profile-nav-options no-show">
+<text id="exit-btn">Salir</text></div>
+                </li>
+                 <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row current-address">
+
+    </div>
+
+
+
+
+    <div class="row back-button"> <i class="fa fa-chevron-left cursor"></i><span class="cursor">Todos los restaurantes</span></div></br>
+
+   <div class="row restaurant-profile" id="restaurant-profile">
+   </div></br>
+    <div class="container"> 
+        <div class="row">
+            <div class="col8 menu-container">
+                <div class="row products-list">
+                </div>
+            </div>
+            <div class="col4 order-container">
+                <div class="title">
+                    <i class="fa fa-shopping-cart "></i> | Tu orden en <b><span class="red" id="restaurant-name-order"></span></b>
+                    </br>
+                    </br>
+                    Mínimo: ₡<span id="restaurant-min"></span></br>
+                    Delivery: <span id="restaurant-delivery"></span></br>
+                </div>
+                </br>
+                <div class="row gray1-bg">
+                    <div class="col6">Item</div>
+                    <div class="col3">Cant.</div>
+                    <div class="col3">Precio</div>
+                </div>
+                <div class="row order-items">
+                    <span class="empty">Estoy con hambre :(</span>
+
+                </div>
+                <div class="row order-type">
+
+                        <div class="col6 cursor pickup" title="Recoge en el restaurante."><i class="fa fa-check-circle green"></i> Pickup</div>
+                        <div class="col6 cursor delivery gray-bg selected" title="Entrega a domicilio."><i class="fa fa-check-circle green"></i>  Delivery</div>
+                    </div>
+                <div class="gray1-bg order-footer">
+                    <div class="row ">
+                        <div class="col9">Subtotal</div>
+                        <div class="col3">₡<span id="order-subtotal">0</span></div>
+                    </div>
+                    <div class="row ">
+                        <div class="col9">Impuestos</div>
+                        <div class="col3">₡<span id="order-taxes">0</span></div>
+                    </div>
+                    <div class="row ">
+                        <div class="col9">Delivery</div>
+                        <div class="col3">₡<span id="restaurant-delivery-checkout">0</span></div>
+                    </div>
+                    <div class="row ">
+                        <div class="col9"><b>Total</b></div>
+                        <div class="col3"><b>₡<span id="order-total">0</span></b></div>
+                    </div>
+                </div>
+                <div class="row btn-order">
+                    <div class="col12 green-bg white">Finalizar <i class="fa fa-caret-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+
+
+    <script type="text/template" class="restaurant-template">
+
+<span class="no-show" id="parseID"><%= restaurant.id %></span>
+<div class="col8" id="<%=restaurant.get("ID")%>">
+    <div class="row">
+        <div class="col2">
+            <img class="icon" id="restaurant-icon" alt="Icono del establecimiento." src="img/rest/<%=restaurant.get("ID")%>.jpg" width="70"></div>
+        <div class="col10">
+            <h1><b><span class="red" id="restaurant-name"> <%= restaurant.get("Nombre") %> </span></b></h1><i class="fa fa-clock-o"><b> <span  class="schedule-text"></span></b> </i> | <span class="blue cursor underline" id="restaurant-schedule">Ver horarios </span><div class="restaurant-schedule">
+<table>
+<tr>
+<td><b>Dom</b></td><td class="sunday"></td><td></td><td><b>Jue</b></td><td class="thursday"></td>
+</tr>
+<tr>
+<td><b>Lun</b></td><td class="monday"></td><td></td><td><b>Vie</b></td><td class="friday"></td>
+</tr>
+<tr>
+<td><b>Mar</b></td><td class="tuesday"></td><td></td><td><b>Sab</b></td><td class="saturday"></td>
+</tr>
+<tr>
+<td><b>Mie</b></td><td class="wednesday"></td>
+</tr>
+</table>
+            </div></div>
+    </div>
+    <div class="row">
+        <div class="col12">
+            <i class="fa fa-map-marker" title="Dirección"></i> <span id="restaurant-address"> <%= restaurant.get("Direccion").get("Descripcion") %></span></br>
+            <i class="fa fa-phone" title="Teléfono"></i><span id="restaurant-telephone"> <%= restaurant.get("Telefono") %></span></br>
+            <i class="fa fa-clock-o" title="Tiempo de entrega"></i> Entrega en aprox. <span id="restaurant-time"><%= restaurant.get("TiempoEntrega") %> minutos.</span>
+        </div>
+    </div>
+</div>
+
+<div class="col4">
+    <table>
+        <tr><td>
+<% if(restaurant.get("Avaliaciones")===1){ %>
+<b><span>1 avaliación</span></b></td>
+<% } else {%>
+<b><span><%= restaurant.get("Avaliaciones") %> avaliaciones</span></b></td>
+<% } %>
+
+        </tr>
+        <tr>
+            <td>Comida: </td>
+            <td>
+                <div id="food-rating"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Precio/Calidad:
+            </td>
+            <td>
+                <div id="price-rating">
+                    <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Presentación:
+            </td>
+            <td>
+                <div id="presentation-rating">
+                    <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Tiempo de entrega:</td>
+            <td>
+                <div id="time-rating"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td> <span class="blue cursor underline">Ver comentarios</span></td>
+        </tr>
+    </table>
+</div>
+
+    </script>
+
+
+
+
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+              <script type="text/javascript" src="js/lib/underscore.js"></script>
+            <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+            <script type="text/javascript" src="js/parse.js"></script>
+            <script type="text/javascript" src="js/helper.js"></script>
+            <script type="text/javascript" src="js/menu.js"></script>
+            <script type="text/javascript" src="js/lib/store.min.js"></script>
+
+        </footer>
+</body>
+
+</html>

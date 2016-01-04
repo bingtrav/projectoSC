@@ -1,0 +1,82 @@
+ID,IDProvincia,Nombre
+1,1,Central
+2,1,Escazu
+3,1,Desamparados
+4,1,Puriscal
+5,1,Tarrazu
+6,1,Aserri
+7,1,Mora
+8,1,Goicoechea
+9,1,"Santa Ana"
+10,1,Alajuelita
+11,1,"Vazquez De Coronado"
+12,1,Acosta
+13,1,Tibas
+14,1,Moravia
+15,1,"Montes De Oca"
+16,1,Turrubares
+17,1,Dota
+18,1,Curridabat
+19,1,"Perez Zeledon"
+20,1,"Leon Cortes"
+21,2,Central
+22,2,"San Ramon"
+23,2,Grecia
+24,2,"San Mateo"
+25,2,Atenas
+26,2,Naranjo
+27,2,Palmares
+28,2,Poas
+29,2,Orotina
+30,2,"San Carlos"
+31,2,"Alfaro Ruiz"
+32,2,"Valverde Vega"
+33,2,Upala
+34,2,"Los Chiles"
+35,2,Guatuso
+36,3,Central
+37,3,Paraiso
+38,3,"La Union"
+39,3,Jimenez
+40,3,Turrialba
+41,3,Alvarado
+42,3,Oreamuno
+43,3,"El Guarco"
+44,4,Central
+45,4,Barva
+46,4,"Santo Domingo"
+47,4,"Santa Barbara"
+48,4,"San Rafael"
+49,4,"San Isidro"
+50,4,Belen
+51,4,Flores
+52,4,"San Pablo"
+53,4,Sarapiqui
+54,5,Liberia
+55,5,Nicoya
+56,5,"Santa Cruz"
+57,5,Bagaces
+58,5,Carrillo
+59,5,Cañas
+60,5,Abangares
+61,5,Tilaran
+62,5,Nandayure
+63,5,"La Cruz"
+64,5,Hojancha
+65,6,Central
+66,6,Esparza
+67,6,"Buenos Aires"
+68,6,"Montes De Oro"
+69,6,Osa
+70,6,Aguirre
+71,6,Golfito
+72,6,"Coto Brus"
+73,6,Parrita
+74,6,Corredores
+75,6,Garabito
+76,7,Central
+77,7,Pococi
+78,7,Siquirres
+79,7,Talamanca
+80,7,Matina
+81,7,Guacimo

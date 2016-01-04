@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='css/skeleton.css' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" type="text/css" href="css/restaurantes.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <span class="menu-responsive">MENU</span>
+    <div class="holis">
+  <nav class="main-nav">
+            <ul class="clearfix">
+                <li> <a href="index.html">Home</a></li>
+                <li><a href="como-pedir.html">Como pedir</a></li>
+                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                 <li class="no-show profile-nav">
+                    <div>
+<img src="img/users/default.jpg" width="40">
+<span></span></br>
+</div>
+<div class="profile-nav-options no-show">
+<text id="exit-btn">Salir</text></div>
+                </li>
+                 <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
+            </ul>
+        </nav>
+    </div>
+   <!-- <div class="row current-address">
+        <i class="fa fa-location-arrow"> <span id="current-location">Rincon de Arias, Grecia</span></i>
+    </div>
+
+
+
+
+    <div class="promotions-container" >
+
+        <div class="row header"><span class="gray"><h3 id="ded">Promociones</h3></span></div>
+        <div class="row">
+            <div class="col3">
+            </div>
+
+            <div class="col3">
+
+            </div>
+
+
+            <div class="col3">
+
+            </div>
+
+            <div class="col3">
+
+            </div>
+
+
+        </div>
+    </div>-->
+    </br>
+
+    <div class="container">
+        <div class="row">
+            <!--<div class="col4 map-container">
+                </br>
+                <i class="fa fa-location-arrow"> <span id="current-location">Rincon de Arias, Grecia</span></i></br>
+                </br>
+                <div id="map"></div>
+            </div>-->
+            <div class="col12 restaurants-container">
+                <div class="filters-container">
+
+                    <div class="row">
+                        <div class="col12">
+                            <div class="row">
+                                <div class="col4 cursor filter-element" id="filter-food">
+                                    <span class="gray">Tipo de comida </span><i class="fa fa-caret-down gray"></i>
+                                </div>
+
+                                <div class="col8 text-right">
+                                    <span id="restaurant-quantity" class="gray"></span>
+                                </div>
+
+
+                                <!--<div class="col3 cursor filter-element" id="filter-delivery">
+                                    <span>Entrega </span><i class="fa fa-caret-down"></i>
+                                </div>
+                                <div class="col3 cursor filter-element" id="filter-payment">
+                                    <span>Pago </span><i class="fa fa-caret-down"></i>
+                                </div>
+                                <div class="col3 cursor filter-element" id="filter-distance">
+                                    <span>Distancia </span><i class="fa fa-caret-down"></i>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="row">-->
+                    <div class="filter-options auto no-show">
+
+                    </div>
+
+
+                    <!--</div>-->
+                    </br>
+
+                    <div class="row search-container">
+                        <!-- <div class="col2"> <i class="fa fa-search"> </i></div>-->
+                        <div class="col11">
+                            <form autocomplete="off">
+                                <input type="text" placeholder="Buscar restaurante..." id="search-restaurant">
+                            </form>
+
+                        </div>
+                        <div class="col1 fa-column">
+                            <i class="fa fa-search gray"> </i>
+                        </div>
+                    </div>
+                    </br>
+
+                    <div class="row restaurants-list" id="restaurants-list">
+
+                        <div class="row loader">
+                            <div class="col2"><img src="img/icons/loader.gif" class="text-center"></div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <footer>
+
+
+
+
+
+      <script type="text/template" class="restaurants-template">
+
+            <% _.each( restaurants, function( restaurant ){ %>
+<div class="row restaurant2 cursor" id="<%= restaurant.get("ID") %>">
+<img class="header" src="img/rest/header-<%= restaurant.get("ID") %>.jpg">
+
+<img class="icon" src="img/rest/<%= restaurant.get("ID") %>.jpg">
+<b><span class="restaurant-name"><%= restaurant.get("Nombre") %></span></b>
+
+<div class="details"><div class="general-rating"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></div><text>Entrega en aprox. </text><%= restaurant.get("TiempoEntrega") %><text> minutos</text></br><i class="fa fa-map-marker red"></i> <text class="distance"></text>
+</div>
+
+</div>
+
+            <% }); %>
+
+
+    </script>
+
+
+
+    <script type="text/template" class="filters-template">
+
+
+    </script>
+
+                <script type="text/javascript" src="js/lib/query-2.1.4.min.js"></script>
+                <script type="text/javascript" src="js/lib/underscore.js"></script>
+                <script type="text/javascript" src="js/lib/parse-1.6.7.min.js"></script>
+                <script type="text/javascript" src="js/parse.js"></script>
+                <script type="text/javascript" src="js/helper.js"></script>
+                <script type="text/javascript" src="js/restaurants.js"></script>
+                <script type="text/javascript" src="js/lib/store.min.js"></script>
+            </footer>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='css/skeleton.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/profile.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Nuevos pedidos (3)</title>
+</head>
+
+
+<body>
+
+
+    <span class="menu-responsive">MENU</span>
+    <div class="holis">
+        <nav class="main-nav">
+            <ul class="clearfix">
+                <li> <a href="index.html">Home</a></li>
+                <li><a href="como-pedir.html">Como pedir</a></li>
+                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                 <li class="no-show profile-nav">
+                    <div>
+<img src="img/users/default.jpg" width="40">
+<span></span></br>
+</div>
+<div class="profile-nav-options no-show">
+<text id="exit-btn">Salir</text></div>
+                </li>
+                 <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row current-address">
+    </div>
+    <div class="container">
+        <div class="wrapper">
+        <div class="row">
+            <div class="col12 profile-container">
+                </br>
+
+                <div class="row picture-box text-center">
+                    <div class="col12">
+                        <img src="img/users/default.jpg" id="user-photo" alt="Foto de perfil" width="150"></br>
+
+                        <b> <span id="profile-user-name"></span></b></br>
+                        </br>
+                        <span class="blue underline cursor exit-btn">Salir</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col12 profile-data-container">
+                </br>
+                <div class="tab-container">
+                    <div class="row">
+                        <div class="col4 cursor tab selected text-center data">
+                            <span>Perfil</span>
+                        </div>
+                        <div class="col4 cursor text-center tab gray order">
+                            <span>Pedidos</span>
+                        </div>
+  
+                        <div class="col4 cursor text-center tab gray address">
+                            <span>Direcciones </span>
+                        </div>
+
+                           <div class="col4 cursor text-center tab gray statistics no-show">
+                            <span>Estadísticas </span>
+                        </div>
+   
+                    </div>
+                    <div class="container-wrapper">
+
+                        <!--ADDRESS-->
+                        <div class="no-show" id="container-address">
+
+                            <div class="row element-wrapper-header text-center">
+                                <div class="col10"><b>Dirección de entrega</b></div>
+                                <div class="col2"></div>
+                            </div>
+                            </br>
+                            <div id="address-list">
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row element-wrapper ">
+                                <div class="col12">
+                                    <span><b>Añadir nueva dirección</b></span>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Dirección</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="text" placeholder="Buscar..." id="geocomplete">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Detalles</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="text" placeholder="Añade más detalles de tu dirección..." id="user-new-address-details">
+                                    </form>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row cursor" id="save-new-address-btn">
+                                <div class="col4 text-center green-bg white">
+                                    Guardar
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADDRESS-->
+
+
+
+                        <!--ORDERS-->
+
+
+
+                        <div id="order-rating-container">
+                            <span class="no-show" id="order-id"></span>
+                            <span class="close-btn plainmodal-close cursor">X</span>
+                            </br>
+                            </br>
+                            </br>
+                            <span>Cuentanos tu experiencia con esta orden y ayudanos a mejorar ;)</span></br>
+                            </br>
+                            <table>
+                                <tr>
+                                    <td>Comida: </td>
+                                    <td>
+                                        <div id="food-rating"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Precio/Calidad:
+                                    </td>
+                                    <td>
+                                        <div id="price-rating">
+                                            <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Presentación:
+                                    </td>
+                                    <td>
+                                        <div id="presentation-rating">
+                                            <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tiempo de entrega:</td>
+                                    <td>
+                                        <div id="time-rating"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></br>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Comentarios:</td>
+                                </tr>
+                            </table>
+                            </br>
+                            <textarea id="order-comment" rows="5" cols="80"></textarea>
+</br>
+<div class="row"><div class="col6">
+                            <b><span class="green cursor" id="send-rate">Enviar</span></b></div>
+                          <div class="col6">
+                            <b><span class="red cursor plainmodal-close">Cancelar</span></b></div>
+                        </div>
+
+                        </div>
+
+                        <div class="no-show" id="container-orders">
+                            <div class="row element-wrapper-header text-center">
+                                <div class="col2 "># pedido</div>
+                                <div class="col3">Fecha</div>
+                                <div class="col2">Total</div>
+                                <div class="col3">Status</div>
+                                <div class="col2"></div>
+                            </div>
+                            </br>
+                        </div>
+                        <div id="container-data" class="active-container no-show">
+                            <div class="row element-wrapper restaurant-fields no-show">
+                                <div class="col4 gray">Restaurante</div>
+                                <div class="col8">
+                                    <select id="user-restaurant-list">
+                                        <option value="0">[Seleccione...]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="elements">
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Nombre</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="text" placeholder="Nombre" id="user-name">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Teléfono</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="number" maxlength="8" placeholder="Adiciona un número de teléfono" id="user-telephone">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="restaurant-fields no-show">
+                                <div class="row element-wrapper">
+                                    <div class="col4 gray">Dirección</div>
+                                    <div class="col8">
+                                        <form autocomplete="off">
+                                            <input type="text" placeholder="Adiciona tu dirección" id="user-address">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row element-wrapper">
+                                    <div class="col4 gray">Pedido mínimo</div>
+                                    <div class="col8">
+                                        <form autocomplete="off">
+                                            <input type="text" placeholder="Adiciona el precio mín de un pedido online" id="user-minimum">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row element-wrapper">
+                                    <div class="col4 gray">Precio delivery</div>
+                                    <div class="col8">
+                                        <form autocomplete="off">
+                                            <input type="text" placeholder="Adiciona el precio de entrega" id="user-delivery">
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="row element-wrapper">
+                                    <div class="col4 gray">Tiempo de entrega</div>
+                                    <div class="col8">
+                                        <form autocomplete="off">
+                                            <input type="text" placeholder="Adiciona el tiempo apróximado de entrega" id="user-delivery-time">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Saldo disponible</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="text" id="user-balance" readonly>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Email</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input type="text" placeholder="Email" id="user-email" readonly>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                            </br>
+                            </br>
+                            <div class="row cursor white" id="save-btn">
+                                <div class="col4 text-center  green-bg">
+                                    Guardar
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row element-wrapper">
+                                <div class="col12">
+                                    <span><b>Cambiar de contraseña</b></span>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Contraseña actual</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input autocomplete="off" type="password" placeholder="Contraseña actual" id="bdehj6g3">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Nueva contraseña</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input autocomplete="off" type="password" placeholder="Nueva contraseña" id="YYvd65_T">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row element-wrapper">
+                                <div class="col4 gray">Confirmar contraseña</div>
+                                <div class="col8">
+                                    <form autocomplete="off">
+                                        <input autocomplete="off" type="password" placeholder="Confirmar contraseña" id="hbwf31ox">
+                                    </form>
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="row cursor white" id="change-password-btn">
+                                <div class="col4 text-center green-bg">
+                                    Cambiar
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <footer>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+                <script type="text/javascript" src="js/parse.js"></script>
+                <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+                <script type="text/javascript" src="js/helper.js"></script>
+                <script type="text/javascript" src="js/profile.js"></script>
+                <script type="text/javascript" src="js/lib/jquery.plainmodal.min.js"></script>
+            </footer>
+</body>
+
+</html>

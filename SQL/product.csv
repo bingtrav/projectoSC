@@ -1,0 +1,14 @@
+ID,Nombre,Descripcion,Grupo,Precio_unitario,Link_fotos,ID_restaurante,Activo
+1,"Coca Cola en lata, 600 ml","Lata de bebida gaseosa Coca Cola en lata",3,850,,1,1
+2,"Guarana Black en lata, 250 ml","Lata de bebida gaseosa Guarana Black en lata",3,450,,1,1
+3,"Pepsi, 2 litros","Botella desechable de Pepsi",3,1800,,1,1
+4,"Fanta naranja en lata, 350 ml","Fanta naranja en lata",3,450,,1,1
+5,"Receta original","Pollo hecho con nuestra secreta receta",4,2250,,1,1
+6,"Receta original extra crispy","Pollo hecho con nuestra secreta receta mas un poco de extra crispy",4,2500,,1,1
+7,"Pollos Hermanos pollo asado","Nuestro delicioso pollo asado original con vainicas como acompanhante. Incluye 4 piezas de pollo.",4,1500,,1,1
+8,"Pollos Hermanos Popcorn Nuggets","Nuggets de pollo hechos palomitas, 800 ml",4,1450,,1,1
+9,"Pollos Hermanos Go Cup","Deliciosos nuggets de pollo crispy con papas fritas americanas especiales, 600 mg",4,1795,,1,1
+10,"Pollos Hermanos Dubleucious","Sandwich de pan especial de la casa con pollo crispy original.",5,1200,,1,1
+11,"Pollos Hermanos pequenhos gemelos","Sandwiches de pan gemelos, uno con pollo original y otro con pollo crsipy especial de la casa.",5,1399,,1,1
+12,"Tres leches","La torta tres leches es un postre originario de los países de América Latina y se caracteriza por contener, tal y como indica su nombre, los tres tipos distintos de leche: leche condensada, leche evaporada y crema de leche.",7,650,,1,1
+13,"Volcado de pinha","El volteado de piña es uno de los pasteles más tradicionales de los países de América Latina. Su preparación es muy sencilla y sabor exquisito.",7,650,,1,1

@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "PinticoTest": {
+      "applicationId": "RjmvExO1glkREICjNE07exae0rWa0ZKRZ1Spyv19"
+    },
+    "_default": {
+      "link": "PinticoTest"
+    }
+  }
+}
