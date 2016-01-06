@@ -123,7 +123,6 @@ transition: top 0.9s, linear;
   width: 100%;
   margin-top: 0;
   z-index: 1;
-
 }
 
 .main-nav ul{
@@ -521,49 +520,52 @@ input:focus:-moz-placeholder{
 
 /* iPhone 4 ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-.restaurant2{
-	width: 98%;
-}
+	.restaurant2{
+		width: 98%;
+	}
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-.restaurant2{
-	width: 98%;
-	height: 110px;
+	.restaurants-container .restaurant2{
+		margin: 22px 0px;
+		padding: 2px;
+	}
 
-}
+	.restaurant2{
+		width: 98%;
+		height: 110px;
+	}
 
-.restaurant2 .icon{
-	left: 150px;
-	top:10px;
-}
+	.restaurant2 .icon{
+		left: 150px;
+		top:10px;
+	}
 
-.restaurant2 span{
-font-size: 1.3em;
-top:80px;
-}
+	.restaurant2 span{
+		font-size: 1.3em;
+		top:80px;
+		margin-bottom: 20px;
+	}
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
-.restaurant2{
-	width: 49%;
-}
+	.restaurant2{
+		width: 49%;
+	}
 }
 
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	.restaurant2 .header{
+		width: 100%;
+	}
 
-.restaurant2 .header{
-	width: 100%;
-}
-
-.restaurant2 .icon{
-	left: 290px;
-	top:10px;
-}
-
+	.restaurant2 .icon{
+		left: 290px;
+		top:10px;
+	}
 }
 
 
