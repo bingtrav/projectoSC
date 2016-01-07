@@ -109,20 +109,16 @@ transition: top 0.9s, linear;
 
 
 /**NEW**/
-
-
-
-
-
+/* menu #Uso del mismo de common.css#*/
 .main-nav {
-  background: #b71c1c;
-  height: 65px;
-  position: fixed;
-  box-shadow: 0 2px 3px rgba(0,0,0,.4);
-  color: white;
-  width: 100%;
-  margin-top: 0;
-  z-index: 1;
+	background: #b71c1c;
+	height: 65px;
+	position: fixed;
+	box-shadow: 0 2px 3px rgba(0,0,0,.4);
+	color: white;
+	width: 100%;
+	z-index: 10;
+	margin-top: 0;
 }
 
 .main-nav ul{
@@ -137,16 +133,17 @@ transition: top 0.9s, linear;
 	width: 20%;
 	cursor: pointer;
 	height: 65px;
+	font-size: 1.03em;
+	line-height: 65px;
+	overflow: hidden;
 }
 
 .main-nav ul li a{
-text-decoration: none;
-color: white;
-text-align: center;
-vertical-align: center;
-display: block;
-
-
+	text-decoration: none;
+	color: white;
+	text-align: center;
+	vertical-align: center;
+	display: block;
 }
 
 .menu-responsive{
@@ -342,11 +339,9 @@ align-items: center;
 
 #filter-payment-method{
 	height: 100px;
-
 }
 
 #filter-type-food{
-
 	height: 100px;
 }
 
@@ -521,6 +516,11 @@ input:focus:-moz-placeholder{
 /* iPhone 4 ----------- */
 /* Landcscape */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+	.main-nav ul li a {
+		font-size: 0.98em;
+		padding-right: 1px;
+	}
+	
 	.restaurants-container .restaurant2 {
 		margin: 5px 0px;
 		padding: 2px;
@@ -541,6 +541,22 @@ input:focus:-moz-placeholder{
 
 /* Portail */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+	.main-nav ul li a {
+		font-size: 0.98em;
+		padding-right: 1px;
+	}
+
+	#filter-food {
+		padding: 8px 4px;
+		margin-top: 4px;
+		text-align: right;
+	}
+
+	#restaurant-quantity {
+		padding: 6px 4px;
+		margin: 0px;
+	}
+
 	.restaurants-container .restaurant2 {
 		margin: 25px 0px;
 		padding: 2px;
