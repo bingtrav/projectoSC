@@ -518,12 +518,26 @@ input:focus:-moz-placeholder{
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 	.main-nav ul li a {
 		font-size: 0.98em;
-		padding-right: 1px;
+		margin: 2px 5px;
+		padding: 0px 5px;
+		overflow: hidden;
 	}
 	
 	.restaurants-container .restaurant2 {
 		margin: 5px 0px;
 		padding: 2px;
+	}
+
+	.col12 {
+		margin: -15px 0px;
+	}
+
+	.search-container {
+		margin-bottom: -5px;
+	}
+
+	.search-container .fa {
+		margin-left: -6px;
 	}
 
 	.restaurant2 {
@@ -541,9 +555,20 @@ input:focus:-moz-placeholder{
 
 /* Portail */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+	.main-nav ul li {
+		width: 18%;
+		margin-right: 4px;
+		margin-left: 2px;
+	}
+
 	.main-nav ul li a {
-		font-size: 0.98em;
-		padding-right: 1px;
+		font-size: 0.88em;
+		width: 100%;
+	}
+
+	/*Search food bar*/
+	.col12 .row {
+		font-size: 15px;
 	}
 
 	#filter-food {
@@ -557,6 +582,30 @@ input:focus:-moz-placeholder{
 		margin: 0px;
 	}
 
+	/*Search bar*/
+	.col12 {
+		margin-top: -20px;
+		margin-bottom: -25px;
+	}
+
+	.search-container {
+		margin-bottom: -30px;
+	}
+
+	.search-container .col11 {
+		margin: -5px;
+		padding-top: 15px;
+	}
+
+	.search-container .col1 {
+		width: 13%;
+	}
+
+	.search-container .fa {
+		margin-left: -6px;
+	}
+
+	/*Restaurant bar*/
 	.restaurants-container .restaurant2 {
 		margin: 25px 0px;
 		padding: 2px;
@@ -577,7 +626,7 @@ input:focus:-moz-placeholder{
 	.restaurant2 span {
 		font-size: 1.3em;
 		top:80px;
-		margin-bottom: 20px;
+		padding-top: 20px;
 	}
 }
 
