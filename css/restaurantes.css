@@ -515,7 +515,7 @@ input:focus:-moz-placeholder{
 
 /* iPhone 4 ----------- */
 /* Landcscape */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {	
 	.main-nav ul li a {
 		font-size: 0.98em;
 		margin: 2px 5px;
@@ -523,6 +523,10 @@ input:focus:-moz-placeholder{
 		overflow: hidden;
 	}
 	
+	/*Container*/
+	.container {
+		width: 85%;
+	}
 	.restaurants-container .restaurant2 {
 		margin: 5px 0px;
 		padding: 2px;
@@ -568,7 +572,7 @@ input:focus:-moz-placeholder{
 
 	/*Container*/
 	.container {
-		width: 90%;
+		width: 95%;
 	}
 
 	/*Search food bar*/
