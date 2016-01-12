@@ -4,10 +4,15 @@
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	-o-box-sizing: border-box;
+	margin:0;
+	padding:0;
+
+
 }
 
 body{
 	margin: 0;
+	
 }
 
 html{
@@ -20,7 +25,8 @@ background-color: white;
 }
 
 
-
+.menu-responsive{
+	display: none;}
 
 
 .main-nav {
@@ -31,8 +37,6 @@ background-color: white;
   color: white;
   width: 100%;
   margin-top: 0;
-
-
 }
 
 .main-nav ul{
@@ -55,8 +59,6 @@ color: white;
 text-align: center;
 vertical-align: center;
 display: block;
-
-
 }
 
 
@@ -65,9 +67,7 @@ display: block;
 
 }
 
-.menu-responsive{
-	display: none;
-}
+
 
 
 .current-address{
@@ -86,7 +86,7 @@ margin-bottom: 20px;
 }
 
 .holis{
-	background-color: black;
+
 	height: 50px;
 	margin-bottom: 25px;
 }
@@ -100,6 +100,7 @@ margin-bottom: 20px;
 	width: 75%;
 	position: relative;
 
+
 /**
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;**/
@@ -109,6 +110,14 @@ margin-bottom: 20px;
 .back-button{
 	width: 75%;
 	margin: auto;
+	height:30px;
+	line-height:30px;
+		margin-top:85px;
+}
+
+.back-button i{
+	line-height:30px;
+	margin-right:5px;
 }
 
 .menu-container{
@@ -116,6 +125,7 @@ margin-bottom: 20px;
 	height: 850px;
 	position: absolute;
 	left: 0;
+	
 }
 
 .order-checkout-container{
@@ -148,6 +158,7 @@ margin-bottom: 20px;
 .products-header{
 	height: 40px;
 	border-bottom: 1px solid gray;
+
 }
 
 .products-header .col1{
@@ -248,6 +259,16 @@ h1{
 	border-bottom: 1px solid gray;
 }
 
+
+.restaurant-schedule-mobile{
+	display:none;
+	width:125%;
+	height:165px;
+	margin-bottom:0;
+margin-top: 10px;
+}
+
+
 .restaurant-schedule{
 	width: 75%;
 	height: 90px;
@@ -258,14 +279,8 @@ h1{
 
 .restaurant-schedule table{
 	margin: auto;
-
 }
 
-.restaurant-profile .col8{
-
-
-
-}
 
 .restaurant-profile .col4{
 	margin-top: 50px;
@@ -337,7 +352,7 @@ margin: auto;
 }
 
 img{
-	max-width: 100%;
+max-width: 100%;
 	height: auto;
 	border-radius: 50%;
 }
@@ -401,31 +416,197 @@ input:focus:-moz-placeholder{
 
 /**MEDIA QUERIES**/
 
-@media screen and (max-width: 480px){
 
-.main-nav ul li{
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 
-	float: none;
-	border-bottom: 2px solid white;
-}
-
-.main-nav{
+.restaurant-rating{
 	display: none;
 }
 
-.nav-expanded{
-	display: block;
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+.restaunt-schedule{
+	display:none;
+}
+
+.products-header .col1{
+	line-height: 60px;
+}
+
+.back-button{
+	width:99%;
+	font-size:1.3pc;
+	height:60px;
+	line-height:60px;
+}
+
+
+.back-button i{
+	line-height:62.5px;
+}
+
+.products-header{
+	height:60px;
+	font-size: 1.3pc;
+	line-height:40px;
+}
+
+.product{
+	height:160px;
+
+}
+
+.product .icon{
+	display:none;
+}
+
+.product .description{
+	width:75%;
+text-align:left;
+}
+
+/**
+.product .description .product-description{
+	display:none;
+}
+**/
+.current-address{
+	display:none;
+}
+
+.container{
+	width:100%;
+}
+
+.container .menu-container{
+width:100%;
+}
+
+
+.restaurant-profile{
+	
+width:100%;
+height:280px;
+}
+
+.restaurant-profile .restaurant-profile-container{
+	width:100%;
+	font-size:1pc;
+}
+/**
+.restaurant-name{
+	font-size:2.3pc;
+}
+**/
+.restaurant-profile-container .col2{
+display:none;
+
+}
+
+.restaurant-rating{
+	display: none;
+}
+
+
+}
+
+@media screen and (max-width: 768px){
+	
+	.order-container{
+	display:none;
+}
+
+	
+.btn-continue-order{
+	height:55px;
+	line-height:35px;
+	font-size:1.3pc;
+}
+
+.order-container-mobile .title{
+	text-align:center;
+}
+
+.order-container-mobile{
+	width:100%;
+	height:500px;
+	background-color:white;
+	font-size:1pc;
+	margin-top:70px;
+	display:none;
+}
+.order-container-mobile .order-items{
+	height:175px;
+}
+
+.order-items .row{
+	height:50px;
+	line-height:25px;
+}
 
 .menu-responsive{
 	display: block;
+	height:70px;
+	line-height:70px;
+	z-index:2;
+	width:100%;
+	padding:5px;
+ 	box-shadow: 0px 5px 3px rgba(0,0,0,.4);
+ 	position:fixed;
 }
 
-.main-nav ul li:last-child{
-
-	border-bottom: none;
+.menu-resposive a{
+	text-decoration:none;
 }
 
 
+.menu-responsive .fa{
+	color:white;
+	height:60px;
+	line-height:65px;
+	margin:0;
+}
+
+#menu-bar .fa{
+		margin-left:20px;
+}
+
+#cart-bar .fa{
+	float:right;
+	margin-right:20px;
+}
+	
+.main-nav {
+  height: 100%;
+  position: fixed;
+  color: white;
+  width: 75%;
+  margin:0;
+  z-index:1;
+  background-color: #b71c1c;
+  left:-100%;
+}
+
+.main-nav ul li{
+	display: block;
+	float:none;
+	width:100%;
+	height:70px;
+	line-height:70px;
+	border-bottom: 1px solid white;
+	font-size:1.2pc;
+
+}
+
+
+.no-show{display:none;}
+
+.profile-nav{
+	display:none;
+	background-color:white;
+	}
+	
 }

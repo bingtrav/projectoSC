@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
 
+    var mb = new MobileDetect(window.navigator.userAgent);
+
+
     var restTemp = _.template($("script.restaurant-template").html());
 
     var loadedProducts = {};
@@ -126,8 +129,8 @@ $(document).ready(function() {
                     $('#restaurant-delivery').text("Gratis");
                 } else {
                     $('#restaurant-delivery').text("₡" + restaurantDelivery);
-                    $('#restaurant-delivery-checkout').text(restaurantDelivery);
-                    $('#order-total').text(restaurantDelivery);
+                    $('.restaurant-delivery-checkout').text(restaurantDelivery);
+                    $('.order-total').text(restaurantDelivery);
                 }
 
                 setRestaurantSchedule(restaurant);
@@ -222,21 +225,26 @@ $(document).ready(function() {
 
     function setProductList(map) {
         $.each(map, function(group, productList) {
-
             var html = '<div class="row products-header cursor"><div class="col11"><b><span class="product-group red">' + group + '</span></b></div><div class="col1"><i class="fa fa-chevron-down cursor red"></i></div></div><div class="products-group">';
             for (var i = 0; i < productList.length; i++) {
                 var product = productList[i];
                 loadedProducts[product.id] = product;
-                html += '<div class="row product" id="' + product.id + '"><span class="no-show short-name">' + product.get("NombreReducido") + '</span><div class="col2 icon"><img  alt="Foto del plato" title="Click para ver fotos del plato" class="cursor" id="product-img" src="img/products/' + product.get("ID") + '.jpg"></div><div class="col7 description"><b><span class="product-name">' + product.get("Nombre") + '</span></b></br><span id="product-description">' + product.get("Descripcion") + '</span></div><div class="col2 info"><span></span></br>₡<span id="product-price">' + product.get("PrecioUnitario") + '</span></br> <i class="fa fa-plus-circle fa-2x cursor btnAddToCard" style="color:#339933" title="Añadir a la orden"></i></div></div>';
+                html += '<div class="row product" id="' + product.id + '"><span class="no-show short-name">' + product.get("NombreReducido") + '</span><div class="col2 icon"><img  alt="Foto del plato" title="Click para ver fotos del plato" class="cursor" id="product-img" src="img/products/' + product.get("ID") + '.jpg"></div><div class="col7 description"><b><span class="product-name">' + product.get("Nombre") + '</span></b></br><span class="product-description">' + product.get("Descripcion") + '</span></div><div class="col2 info"><span></span></br>₡<span id="product-price">' + product.get("PrecioUnitario") + '</span></br> <i class="fa fa-plus-circle fa-2x cursor btnAddToCard" style="color:#339933" title="Añadir a la orden"></i></div></div>';
             }
             $('.products-list').prepend(html + '</div>');
+            if(mb.mobile()){
+                $('.products-header').find('i').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+                 $('.products-group').hide();
+                    $('.products-list').find('.btnAddToCard').removeClass('fa-2x').addClass('fa-3x');
+                       var html = '</br>'+$('.order-container').html();
+                      $('.order-container-mobile').html('').html(html);
+            }
         });
     }
 
 
 
-
-    $('.btn-continue-order').click(function() {
+$('html').on('click','.btn-continue-order',function() {
            if(Parse.User.current()){
         $('.menu-container').animate({'left':'-66.66667%','opacity':0},1000,function(){
             $(this).addClass('no-show');
@@ -307,11 +315,11 @@ function addToCard(temp){
         orderItem.set("Cantidad",1);
         orderItem.set("Orden",null);
         orderItem.set("PrecioUnitario",product.get("PrecioUnitario"));
-            $('.order-items .empty').hide();
+            $('.order-items .empty').first().hide();
            currentOrderItems[id] = orderItem;
-            $('.order-items').append('<div class="row order-item" id="op_' + id + '"><div class="col6"> <span id="item-name">' + name + '<span></div><div class="col3"> <i class="fa fa-minus-circle cursor itemCartQuantity" style="color:#b71c1c" title="Remover uno"></i><span id="item-quantity">1</span><i class="fa fa-plus-circle cursor itemCartQuantity" style="color:#339933" title="Añadir uno más"></i></div><div class="col3">₡<span id="item-price">' + product.get("PrecioUnitario") + '</span></div></div>');
+            $('.order-items').first().append('<div class="row order-item" id="op_' + id + '"><div class="col6"> <span id="item-name">' + name + '<span></div><div class="col3"> <i class="fa fa-minus-circle cursor itemCartQuantity" style="color:#b71c1c" title="Remover uno"></i><span id="item-quantity">1</span><i class="fa fa-plus-circle cursor itemCartQuantity" style="color:#339933" title="Añadir uno más"></i></div><div class="col3">₡<span id="item-price">' + product.get("PrecioUnitario") + '</span></div></div>');
         } else {
-           var element = $('#op_' + id).find('#item-quantity');
+           var element = $('#op_' + id).first().find('#item-quantity');
            var orderItem = currentOrderItems[id];
            var quantity = orderItem.get("Cantidad") + 1;
            orderItem.set("Cantidad",quantity);
@@ -319,6 +327,7 @@ function addToCard(temp){
         }
         updateOrderInformation('add', currentOrderItems[id].get("PrecioUnitario"));
         store.set('currentCart',currentOrderItems);
+  
 
 }
 
@@ -347,9 +356,7 @@ function addToCard(temp){
     });
 
 
-
-    $('.order-type div').click(function() {
-        //var delivery = parseInt($('#restaurant-delivery-checkout').text());
+$('html').on('click','.order-type div', function(event) {
         var delivery = restaurantDelivery;
         if ($(this).is(':first-child')) {
             if (!$(this).hasClass('selected')) {
@@ -369,11 +376,9 @@ function addToCard(temp){
                 $('.order-type').find('.delivery i').css({
                     'display': 'none'
                 });
-                $('#order-total').text(parseInt($('#order-total').text()) - delivery);
-                $('#restaurant-delivery-checkout').text('0');
-
+                $('.order-total').text(parseInt($('.order-total').first().text()) - delivery);
+                $('.restaurant-delivery-checkout').text('0');
             }
-
         } else {
             if (!$(this).hasClass('selected')) {
                 $('.order-checkout-steps').removeClass('no-show');
@@ -392,53 +397,59 @@ function addToCard(temp){
                 $('.order-type').find('.pickup i').css({
                     'display': 'none'
                 });
-                $('#order-total').text(parseInt($('#order-total').text()) + delivery);
-                //$('#restaurant-delivery-checkout').closest('.row').css('display', 'flex');
-                 $('#restaurant-delivery-checkout').text(restaurantDelivery);
+                $('.order-total').text(parseInt($('.order-total').first().text()) + delivery);
+                 $('.restaurant-delivery-checkout').text(restaurantDelivery);
             }
         }
-
     });
 
     function updateOrderInformation(type, value) {
-        var subtotal = $('#order-subtotal');
-        var total = $('#order-total');
+        var subtotal = $('.order-subtotal').first();
+        var total = $('.order-total').first();
         if (type === 'add') {
-            subtotal.text(parseInt(subtotal.text()) + value);
-            total.text(parseInt(total.text()) + value);
+            subtotal.first().text(parseInt(subtotal.first().text()) + value);
+            total.first().text(parseInt(total.first().text()) + value);
         } else {
-            subtotal.text(parseInt(subtotal.text()) - value);
-            total.text(parseInt(total.text()) - value);
+            subtotal.first().text(parseInt(subtotal.first().text()) - value);
+            total.first().text(parseInt(total.first().text()) - value);
         }
     }
 
    
+   
+
+   
+   
+   
 
     var scheduleVisible = false;
     $('html').on('click', '#restaurant-schedule', function() {
+
+var element =  $('.restaurant-schedule');
+var qty = 90;
+  if(mb.mobile()){
+      qty = 175;
+      element = $('.restaurant-schedule-mobile');
+  }
+
         if (!scheduleVisible) {
             scheduleVisible = true;
-            var height = $('.restaurant-profile').height() + 90;
-            $('.restaurant-profile').animate({
-                height: height
-            }, 350);
+            var height = $('.restaurant-profile').height() + qty;
         } else {
             scheduleVisible = false;
-            var height = $('.restaurant-profile').height() - 90;
+              var height = $('.restaurant-profile').height() - qty;
+        }
+    
             $('.restaurant-profile').animate({
                 height: height
             }, 350);
-        }
-        $('.restaurant-schedule').slideToggle(350);
-
+          element.slideToggle(350);   
     });
 
     //$('.products-header').click(function() {
     $('html').on('click', '.products-header', function() {
-
         var temp = $(this).find('i');
         var current = $(this);
-
         if (temp.hasClass('fa-chevron-down')) {
             current.next('.products-group').hide('slow');
             temp.removeClass('fa-chevron-down').addClass('fa-chevron-right');
@@ -583,6 +594,42 @@ var delivery = store.get("delivery");
         });
 
     });
-
-
+    
+    
+    var hiddenMenu = true;
+    $('#menu-bar').click(function(){
+       if(hiddenMenu){
+           hiddenMenu = false;
+           $('nav').animate({
+              left:'0'
+           });
+       }else{
+           hiddenMenu = true;
+              $('nav').animate({
+              left:'-100%' 
+           });
+       }
+        
+    });
+    
+      var hiddenCart = true;
+    $('#cart-bar').click(function(){
+     //   var html = '</br>'+$('.order-container').html();
+       if(hiddenCart){
+           hiddenCart = false;
+           var height = $('body').height() + 500;
+         //  $('.order-container-mobile').html('').html(html);
+           $('.back-button').css('margin-top','10px');
+       }else{
+           hiddenCart= true;
+           var height = $('body').height() - 500;
+            $('.back-button').css('margin-top','85px');
+       }
+       
+         $('body').animate({
+                height: height
+            }, 750);
+          $('.order-container-mobile').slideToggle(750); 
+       
+    });
 });
