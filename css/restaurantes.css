@@ -562,8 +562,13 @@ input:focus:-moz-placeholder{
 	}
 
 	.main-nav ul li a {
-		font-size: 0.88em;
 		width: 100%;
+		font-size: 0.88em;
+	}
+
+	/*Container*/
+	.container {
+		width: 90%;
 	}
 
 	/*Search food bar*/
@@ -593,8 +598,9 @@ input:focus:-moz-placeholder{
 	}
 
 	.search-container .col11 {
-		margin: -5px;
-		padding-top: 15px;
+		width: 90%;
+		margin: -4px;
+		padding-top: 14px;
 	}
 
 	.search-container .col1 {
@@ -602,7 +608,7 @@ input:focus:-moz-placeholder{
 	}
 
 	.search-container .fa {
-		margin-left: -6px;
+		margin-left: -3px;
 	}
 
 	/*Restaurant bar*/
@@ -619,8 +625,8 @@ input:focus:-moz-placeholder{
 	.restaurant2 .icon {
 		background: white;
 		margin-top: -7px;
-		margin-left: -75px;
-		padding: 1px;
+		margin-left: -30px;
+		padding: 2px;
 	}
 
 	.restaurant2 span {
