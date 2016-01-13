@@ -570,41 +570,4 @@ var delivery = store.get("delivery");
 
     });
     
-    
-    var hiddenMenu = true;
-    $('#menu-bar').click(function(){
-       if(hiddenMenu){
-           hiddenMenu = false;
-           $('nav').animate({
-              left:'0'
-           });
-       }else{
-           hiddenMenu = true;
-              $('nav').animate({
-              left:'-100%' 
-           });
-       }
-        
-    });
-    
-      var hiddenCart = true;
-    $('#cart-bar').click(function(){
-     //   var html = '</br>'+$('.order-container').html();
-       if(hiddenCart){
-           hiddenCart = false;
-           var height = $('body').height() + 500;
-         //  $('.order-container-mobile').html('').html(html);
-           $('.back-button').css('margin-top','10px');
-       }else{
-           hiddenCart= true;
-           var height = $('body').height() - 500;
-            $('.back-button').css('margin-top','85px');
-       }
-       
-         $('body').animate({
-                height: height
-            }, 750);
-          $('.order-container-mobile').slideToggle(750); 
-       
-    });
 });

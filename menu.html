@@ -8,6 +8,7 @@
       <meta name="mobile-web-app-capable" content="yes"/>
       <link href='css/skeleton.css' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="css/menu.css" />
+       <link rel="stylesheet" type="text/css" href="css/common.css" />
       <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
@@ -16,13 +17,14 @@
    </head>
    <body>
             <div class="menu-responsive red-bg white">
-               <a href="#" id="menu-bar"><span class="fa fa-2x fa-bars"></span></a>
+            <a href="#" id="menu-bar"><span class="fa fa-2x fa-bars left-bar"></span></a>
               <a href="#" id="cart-bar"><span class="fa fa-2x fa-shopping-cart"></span></a>
+                 <a href="#" id="close-bar"><span class="fa fa-2x fa-times left-bar"></span></a>
            </div>
         
         <nav class="main-nav">
             <ul class="clearfix">
-               <li> <a href="index.html">Home</a></li>
+               <li> <a href="index.html">Inicio</a></li>
                <li><a href="como-pedir.html">Como pedir</a></li>
                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
                <li><a href="contacto.html">Contacto</a></li>
@@ -245,11 +247,13 @@
                 </table>
             </div>
          </script>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+        <script type="text/javascript" src="js/lib/query-2.1.4.min.js"></script>
          <script type="text/javascript" src="js/lib/underscore.js"></script>
-         <script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"></script>
+         <!--<script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"></script>-->
+         <script type="text/javascript" src="js/lib/parse-1.6.7.min.js"></script>
          <script type="text/javascript" src="js/parse.js"></script>
-         <script type="text/javascript" src="js/helper.js"></script>
+         <script type="text/javascript" src="js/common.js"></script>
          <script type="text/javascript" src="js/lib/mobile-detect.js"></script>
          <script type="text/javascript" src="js/menu.js"></script>
          <script type="text/javascript" src="js/lib/store.min.js"></script>
