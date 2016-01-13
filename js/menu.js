@@ -88,37 +88,13 @@ $(document).ready(function() {
             success: function(restaurant) {
 
 
-                $("#restaurant-profile").append(restTemp({
-                    restaurant
-                }));
-
-                /** $('.restaurant').attr('id',restaurant.get("ID"));
-                $('#parseID').text(restaurant.id);
-                $('#restaurant-icon').attr('src', "img/rest/" + restaurant.get("ID") + ".jpg");
-                var restaurantName = restaurant.get("Nombre");
-                $('#restaurant-name').text(restaurantName);
-                $('#restaurant-name-order').text(restaurantName);
-                //$('#restaurant-email').attr('title', restaurant.get("Email"));
-                $('#restaurant-telephone').text(restaurant.get("Telefono"));
-**/
-                /**
-                  var time = restaurant.get("TiempoEntrega");
-                  if (time != 0) {
-                      var current = $('#restaurant-time').attr('title');
-                      $('#restaurant-time').text('Entrega en aprox. '+ time + " minutos.");
-                  } else {
-                      $('#restaurant-time').hide();
-                  }**/
-
+              $("#restaurant-profile").append(restTemp({restaurant:restaurant}));
                 setRestaurantTime(restaurant);
                 setIndividualRating(restaurant.get("Comida"), '#food-rating');
                 setIndividualRating(restaurant.get("PrecioCalidad"), '#price-rating');
                 setIndividualRating(restaurant.get("Presentacion"), '#presentation-rating');
                 setIndividualRating(restaurant.get("Tiempo"), '#time-rating');
-
-
-
-
+                
                 setRestaurantItems(restaurant);
                 $('.restaurant-name').text(restaurant.get("Nombre"));
                 var restaurantMin = restaurant.get("OrdenMinima");
@@ -137,10 +113,9 @@ $(document).ready(function() {
 
             },
             error: function(object, error) {
-                alert(error);
+                console.log(error);
             }
         });
-
     }
 
     function setRestaurantSchedule(restaurant) {
@@ -595,41 +570,4 @@ var delivery = store.get("delivery");
 
     });
     
-    
-    var hiddenMenu = true;
-    $('#menu-bar').click(function(){
-       if(hiddenMenu){
-           hiddenMenu = false;
-           $('nav').animate({
-              left:'0'
-           });
-       }else{
-           hiddenMenu = true;
-              $('nav').animate({
-              left:'-100%' 
-           });
-       }
-        
-    });
-    
-      var hiddenCart = true;
-    $('#cart-bar').click(function(){
-     //   var html = '</br>'+$('.order-container').html();
-       if(hiddenCart){
-           hiddenCart = false;
-           var height = $('body').height() + 500;
-         //  $('.order-container-mobile').html('').html(html);
-           $('.back-button').css('margin-top','10px');
-       }else{
-           hiddenCart= true;
-           var height = $('body').height() - 500;
-            $('.back-button').css('margin-top','85px');
-       }
-       
-         $('body').animate({
-                height: height
-            }, 750);
-          $('.order-container-mobile').slideToggle(750); 
-       
-    });
 });

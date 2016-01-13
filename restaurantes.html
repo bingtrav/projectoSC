@@ -3,69 +3,60 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+         <meta name="apple-mobile-web-app-capable" content="yes"/>
+         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      <meta name="mobile-web-app-capable" content="yes"/>
     <link href='css/skeleton.css' rel='stylesheet' type='text/css'>
-    
     <link rel="stylesheet" type="text/css" href="css/restaurantes.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
 </head>
 
 <body>
-    <span class="menu-responsive">MENU</span>
-    <div class="holis">
-  <nav class="main-nav">
+    
+    
+          <div class="menu-responsive red-bg white">
+              <a href="#" id="menu-bar"><span class="fa fa-2x fa-bars left-bar"></span></a>
+              <a href="#" id="close-bar"><span class="fa fa-2x fa-times left-bar"></span></a>
+           </div>
+              <nav class="main-nav">
             <ul class="clearfix">
-                <li> <a href="index.html">Home</a></li>
-                <li><a href="como-pedir.html">Como pedir</a></li>
-                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                 <li class="no-show profile-nav">
-                    <div>
-<img src="img/users/default.jpg" width="40">
-<span></span></br>
-</div>
-<div class="profile-nav-options no-show">
-<text id="exit-btn">Salir</text></div>
-                </li>
-                 <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
+               <li> <a href="index.html">Inicio</a></li>
+               <li><a href="como-pedir.html">Como pedir</a></li>
+               <li><a href="restaurantes.html">Tengo un restaurante</a></li>
+               <li><a href="contacto.html">Contacto</a></li>
+               <li class="no-show profile-nav" style="display:none">
+                  <div>
+                     <img src="img/users/default.jpg" width="40">
+                     <span></span><br/>
+                  </div>
+                  <div class="profile-nav-options no-show">
+                     <text id="exit-btn">Salir</text>
+                  </div>
+               </li>
+               <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
             </ul>
-        </nav>
-    </div>
-   <!-- <div class="row current-address">
-        <i class="fa fa-location-arrow"> <span id="current-location">Rincon de Arias, Grecia</span></i>
-    </div>
+         </nav>
 
-
-
-
-    <div class="promotions-container" >
-
+<!--<div class="promotions-container" >
         <div class="row header"><span class="gray"><h3 id="ded">Promociones</h3></span></div>
         <div class="row">
             <div class="col3">
             </div>
-
             <div class="col3">
-
             </div>
-
-
             <div class="col3">
-
             </div>
-
             <div class="col3">
-
             </div>
-
-
         </div>
     </div>-->
-    </br>
+    <br/>
 
     <div class="container">
         <div class="row">
@@ -173,12 +164,11 @@
 
 
     </script>
-
                 <script type="text/javascript" src="js/lib/query-2.1.4.min.js"></script>
                 <script type="text/javascript" src="js/lib/underscore.js"></script>
                 <script type="text/javascript" src="js/lib/parse-1.6.7.min.js"></script>
                 <script type="text/javascript" src="js/parse.js"></script>
-                <script type="text/javascript" src="js/helper.js"></script>
+                <script type="text/javascript" src="js/common.js"></script>
                 <script type="text/javascript" src="js/restaurants.js"></script>
                 <script type="text/javascript" src="js/lib/store.min.js"></script>
             </footer>
