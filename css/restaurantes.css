@@ -46,6 +46,8 @@ background-color: white;
 	max-height: 65px;
 	left: 220px;
 	top:10px;
+	background:white;
+	padding:2px;
 }
 
 .restaurant2 span{
@@ -527,6 +529,7 @@ input:focus:-moz-placeholder{
 	.container {
 		width: 85%;
 	}
+	
 	.restaurants-container .restaurant2 {
 		margin: 5px 0px;
 		padding: 2px;
@@ -537,7 +540,7 @@ input:focus:-moz-placeholder{
 	}
 
 	.search-container {
-		margin-bottom: -5px;
+		margin: -10px 0px -5px 0px;
 	}
 
 	.search-container .fa {
@@ -545,15 +548,18 @@ input:focus:-moz-placeholder{
 	}
 
 	.restaurant2 {
-		width: 98%;
+		width: 100%;
+	}
+	
+	.restaurant2 .header {
+		height: 200px;
+		margin: 5px 0px;
 	}
 
 	.restaurant2 .icon {
-		background: white;
 		margin-top: -5px;
 		margin-left: 35px;
 		margin-right: 5px;
-		padding: 2px;
 	}
 }
 
@@ -572,7 +578,7 @@ input:focus:-moz-placeholder{
 
 	/*Container*/
 	.container {
-		width: 90%;
+		width: 95%;
 	}
 
 	/*Search food bar*/
@@ -601,8 +607,8 @@ input:focus:-moz-placeholder{
 		margin-bottom: -30px;
 	}
 
-	.search-container .col11 {
-		width: 90%;
+	.search-container .col11 {		/*<-- modifica el buscador en restaurante.*/
+		width: 88%;
 		margin: -4px;
 		padding-top: 14px;
 	}
@@ -627,10 +633,8 @@ input:focus:-moz-placeholder{
 	}
 
 	.restaurant2 .icon {
-		background: white;
 		margin-top: -7px;
 		margin-left: -30px;
-		padding: 2px;
 	}
 
 	.restaurant2 span {
