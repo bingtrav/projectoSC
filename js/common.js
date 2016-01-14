@@ -98,7 +98,7 @@ setProfileNav();
 
 
 
-
+/**
 function setAutocomplete(){
 
 
@@ -113,7 +113,7 @@ google.maps.event.addListener(result, 'place_changed', function () {
 
 
 }
-
+**/
 function getGeoPoint(){
     if(location.latitude!==0 && location.longitude!==0){
         return location;

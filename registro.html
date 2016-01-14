@@ -10,26 +10,41 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <span class="menu-responsive">MENU</span>
-    <div class="holis">
-        <nav class="main-nav">
+         <div class="menu-responsive red-bg white">
+            <a href="#" id="menu-bar"><span class="fa fa-2x fa-bars left-bar"></span></a>
+                 <a href="#" id="close-bar"><span class="fa fa-2x fa-times left-bar"></span></a>
+           </div>
+
+
+
+  <nav class="main-nav">
             <ul class="clearfix">
-                <li> <a href="index.html">Home</a></li>
-                <li><a href="como-pedir.html">Como pedir</a></li>
-                <li><a href="restaurantes.html">Tengo un restaurante</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="registro.html">Entrar/Registrar</a></li>
+               <li> <a href="index.html">Inicio</a></li>
+               <li><a href="como-pedir.html">Como pedir</a></li>
+               <li><a href="restaurantes.html">Tengo un restaurante</a></li>
+               <li><a href="contacto.html">Contacto</a></li>
+               <li class="profile-nav">
+                  <div>
+                     <img src="img/users/default.jpg" width="40">
+                     <span></span><br/>
+                  </div>
+                  <div class="profile-nav-options no-show">
+                     <text id="exit-btn">Salir</text>
+                  </div>
+               </li>
+               <li class="register-nav"><a href="registro.html">Entrar/Registrarse</a></li>
             </ul>
-        </nav>
-    </div>
+         </nav>
+
+
     <div class="row current-address">
     </div>
-    <h1>Pintico</h1>
+  <!--  <h1>Pintico</h1>-->
 
 
 
@@ -155,23 +170,13 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <footer>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+         <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"></script>
         <script type="text/javascript" src="js/parse.js"></script>
+          <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/registro.js"></script>
+        <script type="text/javascript" src="js/lib/store.min.js"></script>
     </footer>
 </body>
 
