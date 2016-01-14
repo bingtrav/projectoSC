@@ -8,7 +8,7 @@ $(document).ready(function() {
     var loadedOrders = 0;
     var userType = false;
     var restaurantsList = [];
-    setAutocomplete();
+    //setAutocomplete();
     clearFields();
     setUserData();
 

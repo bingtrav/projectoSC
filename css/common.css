@@ -19,6 +19,9 @@ html{
 }
 
 
+.menu-responsive{
+	display: none;}
+
 .main-nav {
   background: #b71c1c;
   height: 65px;
