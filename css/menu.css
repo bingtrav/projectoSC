@@ -511,6 +511,10 @@ display:none;
 	display:none;
 }
 
+.profile-data-container{
+	background-color:black;
+}
+
 	
 .btn-continue-order{
 	height:55px;
