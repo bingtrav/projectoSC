@@ -150,12 +150,18 @@ function validateLoginEnter(){
 
 
 function loginUser(){
+      console.log(location.href);
+       console.log(window.location.search.substring(5));
 //Parse.User.logIn('c@c.com', 'ericsalas', {
     Parse.User.logIn($('#user-email').val(), $('#user-password').val(), {
   success: function(user) {
     cleanFields(true);
-    window.location.href = "perfil.html";
-  // Parse.User.logOut();
+    if(window.location.search.substring(5)){
+        var menuPageId = store.get('menuPageId');
+      window.location.href = "menu.html?r="+menuPageId;   //OJO MOBILE
+    }else{
+   window.location.href = "perfil.html";}
+  //Parse.User.logOut();
 
   },
   error: function(user, error) {

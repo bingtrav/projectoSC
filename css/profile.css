@@ -432,36 +432,3 @@ input:focus:-moz-placeholder{
 }
 
 
-
-
-
-/**MEDIA QUERIES**/
-
-@media screen and (max-width: 480px){
-
-.main-nav ul li{
-
-	float: none;
-	border-bottom: 2px solid white;
-}
-
-.main-nav{
-	display: none;
-}
-
-.nav-expanded{
-	display: block;
-}
-
-
-.menu-responsive{
-	display: block;
-}
-
-.main-nav ul li:last-child{
-
-	border-bottom: none;
-}
-
-
-}

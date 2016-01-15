@@ -2,13 +2,9 @@ $(document).ready(function() {
 
 
     var mb = new MobileDetect(window.navigator.userAgent);
-
-
     var restTemp = _.template($("script.restaurant-template").html());
-
     var loadedProducts = {};
-
-
+    $('.order-container-mobile').html(store.get('cartHTML')); //OJO MOBILE
     setRestaurantInformation();
 
         var Order = Parse.Object.extend("Order");
@@ -26,20 +22,6 @@ $(document).ready(function() {
         window.location.href = url;
 
     });
-    /**
-
-    $('.back-button').find('span').mouseover(function(){
-
-    $(this).css('font-weight','bold');
-
-    });
-
-    $('.back-button').find('span').mouseout(function(){
-
-    $(this).css('font-weight','normal');
-
-    });**/
-
 
     function setRestaurantItems(currentRestaurant) {
 
@@ -212,7 +194,7 @@ $(document).ready(function() {
                  $('.products-group').hide();
                     $('.products-list').find('.btnAddToCard').removeClass('fa-2x').addClass('fa-3x');
                        var html = '</br>'+$('.order-container').html();
-                      $('.order-container-mobile').html('').html(html);
+                     // $('.order-container-mobile').html('').html(html);
             }
         });
     }
@@ -220,7 +202,7 @@ $(document).ready(function() {
 
 
 $('html').on('click','.btn-continue-order',function() {
-           if(Parse.User.current()){
+         if(Parse.User.current()){
         $('.menu-container').animate({'left':'-66.66667%','opacity':0},1000,function(){
             $(this).addClass('no-show');
         });
@@ -233,12 +215,17 @@ $('html').on('click','.btn-continue-order',function() {
          });
         $('.order-checkout-container').removeClass('no-show').animate({'left':'33.33333%','opacity':100},1000);
     }else{
+        store.set('cartHTML',$('.order-container-mobile').html());//OJO MOBILE
+        alert(store.get('cartHTML'));
+        store.set('menuPageId',window.location.search.substring(3));
         alert('Debe loguearse para continuar!');
+        var url = "registro.html?red=true";
+        window.location.href = url;
     }
     });
 
-  $('.btn-edit-order').click(function() {
-            $('.menu-container').removeClass('no-show').animate({'left':'0','opacity':100},1000);
+ $('html').on('click','.btn-edit-order',function() {
+        $('.menu-container').removeClass('no-show').animate({'left':'0','opacity':100},1000);
         $('.order-container').animate({'left':'66.66667%'},1000);
         $('.btn-edit-order').addClass('no-show');
          $('.fa-plus-circle,.fa-minus-circle').css('display','inline-block');

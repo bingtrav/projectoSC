@@ -16,7 +16,7 @@ $('.left-bar').click(function(){
            $('nav').animate({
               left:'-100%'
            });
-                    $('#close-bar').hide(300);
+            $('#close-bar').hide(300);
                $('#menu-bar').show(300);
                 hiddenMenu = true;
        }else{
@@ -89,14 +89,13 @@ setProfileNav();
         if(validateCurrentUser()){
             currentUser = Parse.User.current();
             $('.profile-nav').find('img').attr('src','img/users/'+currentUser.id+'.jpg');
+            $('#user-bar').addClass('no-show');
+            $('#profile-bar img').attr('src','img/users/'+currentUser.id+'.jpg').css('display','block');
             $('.profile-nav').find('span').text(currentUser.get("Nombre"));
             $('.register-nav').addClass('no-show');
             $('.profile-nav').removeClass('no-show');
-
         }
     }
-
-
 
 /**
 function setAutocomplete(){

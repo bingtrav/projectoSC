@@ -93,18 +93,25 @@ display: block;
 
 .underline{
 	text-decoration: underline;
+		color: #0080FF;
 }
 
 /** COLORS **/
 
 .red-bg{
-	background-color: #b71c1c;
-}
+	background-color: #b71c1c;}
+	
+.blue{
+color: #0080FF;
+}	
+
 
 
 /** RESPONSIVE MENU **/
 
 @media screen and (max-width: 768px){
+	
+.profile-nav, .register-nav{display: none !important;}
 	
 #close-bar{
 	display:none;
@@ -133,18 +140,20 @@ display: block;
 	margin:0;
 }
 
-#menu-bar .fa{
-margin-left:20px;
+.left-bar{
+	margin-left:20px !important;
 }
 
-#close-bar .fa{
-margin-left:20px;
-}
+#profile-bar img{
+border-radius:50%;
+margin-top:10px;
+display:none;
+}		
 
-#cart-bar .fa{
-	float:right;
-	margin-right:20px;
-}
+.right-bar{
+		float:right !important;
+	margin-right:20px !important;
+}		
 	
 .main-nav {
   height: 100%;
@@ -169,7 +178,6 @@ margin-left:20px;
 	font-size:1.2pc;
 
 }
-
 
 .profile-nav{
 	display:none;
