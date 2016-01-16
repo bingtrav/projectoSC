@@ -11,6 +11,8 @@ $(document).ready(function() {
     //setAutocomplete();
     clearFields();
     setUserData();
+    
+      var mb = new MobileDetect(window.navigator.userAgent);
 
 
     function clearFields() {
@@ -120,10 +122,13 @@ $(document).ready(function() {
                         var key = v.id;
                         orders[key] = v;
                         console.log(v);
-                      //  $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' + v.get("FechaPedido").toLocaleString() + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details" title="Ver detalles"><i class="fa cursor fa-chevron-right"</i></br></div><div class="order-detail no-show"></div>');
-                  html += "<tr><td class ='no-show order-id'>"+v.id+"</td><td>"+v.get("ID")+"</td><td>"+v.get("FechaPedido").toLocaleString()+"</td><td>₡"+v.get("Total") +"</td><td>"+ v.get("Estado").get("Estado") +"</td></tr>";
-                  
-                  
+                        if(!mb.mobile()){
+             $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' +  v.get("FechaPedido").toLocaleString().split(',')[0] + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details underline" title="Ver detalles">Ver orden</br></div><div class="order-detail no-show"></div>');
+                        }else{
+                         $('.element-wrapper-header').addClass('no-show');
+               $('#container-orders').append('<div class="row element-wrapper order-mobile"><span class="no-show order-id">' + v.id + '</span><div class="col6"><div class="row">'+ v.get("ID") +'</div></br><div class="row">' + v.get("FechaPedido").toLocaleString().split(',')[0] + '</div></div><div class="col6"><div class="row">' + v.get("Estado").get("Estado") + '</div></br><div class="row"><span><b>Total:</b></span>    ₡' + v.get("Total") + '</div></div><div class="order-detail no-show"></div>');
+                        }
+              
                     });
                     $('#container-orders table').append(html);
                 }
@@ -133,6 +138,12 @@ $(document).ready(function() {
             }
         });
     }
+    
+    
+    $('html').on('click','.order-mobile',function(){
+       alert('holis'); 
+    });
+    
     var loadedAddresses = 0;
 
     function loadAddress() {
@@ -242,7 +253,6 @@ $(document).ready(function() {
 
 
     function loadOrderDetails(orderId, parent) {
-
         var OrderDetail = Parse.Object.extend("OrderDetail");
         var query = new Parse.Query(OrderDetail);
         var Order = orders[orderId];

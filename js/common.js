@@ -31,11 +31,11 @@ $('.left-bar').click(function(){
 
       var hiddenCart = true;
     $('#cart-bar').click(function(){
-     //   var html = '</br>'+$('.order-container').html();
+      var html = '</br>'+$('.order-container').html();
        if(hiddenCart){
            hiddenCart = false;
            var height = $('body').height() + 500;
-         //  $('.order-container-mobile').html('').html(html);
+           $('.order-container-mobile').html('').html(html);
            $('.back-button').css('margin-top','10px');
        }else{
            hiddenCart= true;
