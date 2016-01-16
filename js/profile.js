@@ -115,12 +115,17 @@ $(document).ready(function() {
                 if (list.length > 0) {
                     //$('#container-orders').html('');
                     loadedOrders = list.length;
+                    var html ="";
                     $.each(list, function(k, v) {
                         var key = v.id;
                         orders[key] = v;
                         console.log(v);
-                        $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' + v.get("FechaPedido").toLocaleString() + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details" title="Ver detalles"><i class="fa cursor fa-chevron-right"</i></br></div><div class="order-detail no-show"></div>');
+                      //  $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' + v.get("FechaPedido").toLocaleString() + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details" title="Ver detalles"><i class="fa cursor fa-chevron-right"</i></br></div><div class="order-detail no-show"></div>');
+                  html += "<tr><td class ='no-show order-id'>"+v.id+"</td><td>"+v.get("ID")+"</td><td>"+v.get("FechaPedido").toLocaleString()+"</td><td>₡"+v.get("Total") +"</td><td>"+ v.get("Estado").get("Estado") +"</td></tr>";
+                  
+                  
                     });
+                    $('#container-orders table').append(html);
                 }
             },
             error: function(object, error) {
