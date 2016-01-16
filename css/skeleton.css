@@ -29,9 +29,10 @@ margin-left: auto;
 margin-right: auto;
 /**margin-bottom: 20px;**/
 
-
 	display: flex;
-	flex-wrap: wrap;
+flex-wrap: wrap;
+-webkit-flex-wrap: wrap;
+  display: -webkit-flex;
 /**
 	padding-left: 10px;
 	padding-right: 10px;**/
@@ -43,12 +44,13 @@ margin-right: auto;
     clear: both; }
 
 .row .col {
-    float: left;
+    /**float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 0 0.75rem;
+   padding: 0 0.75rem;
 padding: 10px;
+**/
 }
 
     

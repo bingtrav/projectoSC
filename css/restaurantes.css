@@ -297,6 +297,7 @@ border-top-left-radius: 10px;
 height: 50px;
 display: flex;
 align-items: center;
+background-color:black;
 }
 
 
@@ -587,13 +588,13 @@ input:focus:-moz-placeholder{
 	}
 
 	#filter-food {
-		padding: 8px 4px;
+	padding: 8px 4px;
 		margin-top: 4px;
 		text-align: right;
 	}
 
 	#restaurant-quantity {
-		padding: 6px 4px;
+	padding: 6px 4px;
 		margin: 0px;
 	}
 

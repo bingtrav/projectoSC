@@ -6,7 +6,6 @@ $(document).ready(function() {
 
 
 
-
     var restTemp = _.template($("script.restaurants-template").html());
     var filTemp = _.template($("script.filters-template").html());
 
