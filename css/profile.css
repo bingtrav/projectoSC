@@ -146,31 +146,26 @@ input{
 
 
 
-
+/**
 #container-orders{
 	width: 100%;
 	overflow-y: auto;
 	_overflow: auto;
 	margin: 0 0 1em;
 }
-
-
 #container-orders::-webkit-scrollbar
 {
 
 	width: 14px;
 	height: 14px;
 }
-
-
-
 #container-orders::-webkit-scrollbar-thumb
 {
 	border-radius: 8px;
 	border: 3px solid #fff;
 	background-color: rgba(0, 0, 0, .3);
 }
-
+**/
 
 .details-footer{
 	margin-top: 20px;
@@ -480,10 +475,41 @@ tr{
 tbody tr:nth-child(even)  td { background-color:  #E9E9E9; }
 
 
-
+.mobile{
+	display:none;
+}
 
 @media screen and (max-width: 768px){
 
+.view-details{
+	font-size:1.2pc;
+	text-align:center;
+}
+
+.order-mobile{
+
+}
+	
+	.details{
+	height: 150px;
+	overflow-y: visible;
+}
+	
+	.element-wrapper-header{
+		height:40px;
+	}
+
+.full{
+	display:none;
+}
+.mobile{
+	display:flex;
+	display: -webkit-flex;
+}
+
+.order-detail{
+	height:500px;
+}
 
 
 /**
@@ -549,6 +575,7 @@ width:100%;
 }
 .order-container-mobile .order-items{
 	height:175px;
+	background-color:green;
 }
 
 .order-items .row{

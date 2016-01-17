@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 
     function loadOrders() {
-        console.log("orela");
+    
         var Order = Parse.Object.extend("Order");
         var query = new Parse.Query(Order);
         query.include("Estado");
@@ -121,28 +121,41 @@ $(document).ready(function() {
                     $.each(list, function(k, v) {
                         var key = v.id;
                         orders[key] = v;
-                        console.log(v);
+                       // console.log(v);
                         if(!mb.mobile()){
-             $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' +  v.get("FechaPedido").toLocaleString().split(',')[0] + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details underline" title="Ver detalles">Ver orden</br></div><div class="order-detail no-show"></div>');
+                 
+             $('#container-orders').append('<div class="row element-wrapper text-center"><span class="no-show order-id">' + v.id + '</span><div class="col2 ">' + v.get("ID") + '</div><div class="col3">' +  v.get("FechaPedido").toLocaleString().split(',')[0] + '</div><div class="col2">₡' + v.get("Total") + '</div><div class="col3">' + v.get("Estado").get("Estado") + '</br><span class="underline blue cursor rate-order-btn" title="Haz click aquí para calificar esta orden">Calificar orden</span></div><div class="col2 cursor view-details underline" title="Ver detalles de la orden">Ver orden</br></div><div class="order-detail no-show"></div>');
                         }else{
-                         $('.element-wrapper-header').addClass('no-show');
-               $('#container-orders').append('<div class="row element-wrapper order-mobile"><span class="no-show order-id">' + v.id + '</span><div class="col6"><div class="row">'+ v.get("ID") +'</div></br><div class="row">' + v.get("FechaPedido").toLocaleString().split(',')[0] + '</div></div><div class="col6"><div class="row">' + v.get("Estado").get("Estado") + '</div></br><div class="row"><span><b>Total:</b></span>    ₡' + v.get("Total") + '</div></div><div class="order-detail no-show"></div>');
+                        $('.element-wrapper-header').addClass('no-show');
+               $('#container-orders').append('<div class="row element-wrapper order-mobile"><span class="no-show order-id">' + v.id + '</span><div class="col6"><div class="row"><b>'+ v.get("ID") +'</b></div></br><div class="row">' + v.get("FechaPedido").toLocaleString()+ '</div></div><div class="col6"><div class="row">' + v.get("Estado").get("Estado") + '</div></br><div class="row"><span><b>Total:</b></span>    ₡' + v.get("Total") + '</div></br><div class="row cursor view-details underline" title="Ver detalles de la orden">Ver orden</br></div></div><div class="order-detail no-show"></div>');
                         }
-              
                     });
-                    $('#container-orders table').append(html);
-                }
+                   /** $('#container-orders table').append(html);**/}
             },
-            error: function(object, error) {
-
-            }
-        });
+            error: function(object, error) { }});
     }
-    
-    
-    $('html').on('click','.order-mobile',function(){
-       alert('holis'); 
+   /** $('html').on('touchstart click','.order-mobile',function(event){
+       var clickedOrder =  $(event.target).parent('.row');
+       console.log("Clicked element: "+clickedOrder);
+        console.log(clickedOrder);
+        var orderId = clickedOrder.find('.order-id').text();
+        var orderDetail =  clickedOrder.find('.order-detail');
+        console.log("Order id: ");
+         console.log(orderId);
+        console.log("Order detail: ");
+           console.log(orderDetail);
+    });**/
+       $('html').on('click', '.view-details', function(event) {
+           var parent =  $(event.target).parents('.element-wrapper');
+        var orderId = parent.find('.order-id').text();
+        var orderDetail = parent.find('.order-detail');
+        if (orderDetail.css('display') === 'none') {
+            loadOrderDetails(orderId, $(this).parents('.element-wrapper'));
+        }
+        orderDetail.slideToggle();
     });
+    
+    
     
     var loadedAddresses = 0;
 
@@ -176,6 +189,7 @@ $(document).ready(function() {
             if (loadedOrders === 0) {
                 loadOrders();
             }
+              $('.element-wrapper-header').addClass('no-show');
             $('#container-orders').removeClass('no-show').addClass('active-container');
 
         }
@@ -189,6 +203,7 @@ $(document).ready(function() {
             if (loadedAddresses === 0) {
                 loadAddress();
             }
+            $('.element-wrapper-header').removeClass('no-show');
             $('#container-address').removeClass('no-show').addClass('active-container');
 
         }
@@ -236,22 +251,6 @@ $(document).ready(function() {
 
     });
 
-
-    $('html').on('click', '.view-details', function(event) {
-        var parent = $(this).parents('.element-wrapper');
-        var orderId = parent.find('.order-id').text();
-        var orderDetail = parent.find('.order-detail');
-        var icon = parent.find('i');
-        if (orderDetail.css('display') === 'none') {
-            loadOrderDetails(orderId, $(this).parents('.element-wrapper'));
-            icon.removeClass('fa-chevron-right').addClass('fa-chevron-down');
-        } else {
-            icon.removeClass('fa-chevron-down').addClass('fa-chevron-right');
-        }
-        orderDetail.slideToggle();
-    });
-
-
     function loadOrderDetails(orderId, parent) {
         var OrderDetail = Parse.Object.extend("OrderDetail");
         var query = new Parse.Query(OrderDetail);
@@ -268,7 +267,7 @@ $(document).ready(function() {
                     element.html('');
                     $.each(list, function(i, od) {
                         if (!header) {
-                            element.append('Pedido en <b><span class="red cursor rest-name" id="' + od.get("Producto").get("Restaurante").id + '" title="Ver menú">' + od.get("Producto").get("Restaurante").get("Nombre") + '</span></b></br></br><div class="row element-wrapper-header text-center"><div class="col5">Producto</div><div class="col2">Cantidad</div><div class="col2">Precio</div><div class="col3">Subtotal</div></div><div class="details"></div>');
+                            element.append('Pedido en <b><span class="red cursor rest-name" id="' + od.get("Producto").get("Restaurante").id + '" title="Ver menú">' + od.get("Producto").get("Restaurante").get("Nombre") + '</span></b></br></br><div class="row element-wrapper-header text-center"><div class="col5">Producto</div><div class="col2"><span class="full">Cantidad</span><span class="mobile">Cant.</span></div><div class="col2"><span class="full">Precio</span><span class="mobile">Pre.</span></div><div class="col3">Subtotal</div></div><div class="details"></div>');
                             header = true;
                         }
                         var quantity = od.get("Cantidad");
@@ -288,7 +287,9 @@ $(document).ready(function() {
                     }
 
                     var total = Order.get("Total");
-                    element.append('<div class="row element-wrapper-header text-center"><div class="col4">Comentario</div><div class="col4">Dirección de entrega</div><div class="col4">Resumen de pago</div></div><div class="details-footer"><div class="row element-wrapper text-center"><div class="col4">' + Order.get("Comentario") + '</div><div class="col4">' + Order.get("DetalleDireccion") + '</div><div class="col4"><div class="row"><div class="col6">Pago:</div><div class="col6">' + paymentType + '</div></div><div class="row"><div class="col6">Subtotal:</div><div class="col6">₡' + subtotal + '</div></div><div class="row"><div class="col6">Descuento:</div><div class="col6">₡0</div></div><div class="row"><div class="col6">Delivery:</div><div class="col6">' + delivery + '</div></div><div class="row"><div class="col6"><b>Total:</b></div><div class="col6">₡' + total + '</div></div></div></div></div>');
+                    var comment = Order.get("Comentario");
+                    var address = Order.get("DetalleDireccion");
+                    element.append('<div class="row mobile"><div class="col5 red"><b>Comentario:</b></div><div class="col7">'+comment+'</div></div><div class="row mobile"><div class="col5 red"><b>Dirección de entrega:</b></div><div class="col7">'+address+'</div></div><div class="row mobile"><div class="col5 red"><b>Resumen de pago:</b> </div><div class="col7"><span>Pago: </span>'+ paymentType +'</br><span>Subtotal:</span> ₡'+ subtotal +'</br><span>Descuento:</span> ₡0 </br><span>Delivery:</span> '+ delivery +'</br><span>Total: ₡</span>'+ total +'</div></div>                                                       <div class="full row element-wrapper-header text-center"><div class="col4 ">Comentario</div><div class="col4">Dirección de entrega</div><div class="col4">Resumen de pago</div></div><div class="details-footer full"><div class="row element-wrapper text-center"><div class="col4">' +comment + '</div><div class="col4">' + address + '</div><div class="col4"><div class="row"><div class="col6">Pago:</div><div class="col6">' + paymentType + '</div></div><div class="row"><div class="col6">Subtotal:</div><div class="col6">₡' + subtotal + '</div></div><div class="row"><div class="col6">Descuento:</div><div class="col6">₡0</div></div><div class="row"><div class="col6">Delivery:</div><div class="col6">' + delivery + '</div></div><div class="row"><div class="col6"><b>Total:</b></div><div class="col6">₡' + total + '</div></div></div></div></div>');
 
                 }
             },
