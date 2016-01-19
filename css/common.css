@@ -108,8 +108,9 @@ color: #0080FF;
 
 
 /** RESPONSIVE MENU **/
-
-@media screen and (max-width: 768px){
+/**LANDSCAPE AND PORTRAIT**/
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+/**@media screen and (max-width: 768px){**/
 	
 .profile-nav, .register-nav{display: none !important;}
 	
@@ -165,7 +166,6 @@ display:none;
   background-color: #b71c1c;
   left:-100%;
   margin-top:70px;
- 
 }
 
 .main-nav ul li{
@@ -176,12 +176,24 @@ display:none;
 	line-height:70px;
 	border-bottom: 1px solid white;
 	font-size:1.2pc;
-
 }
 
 .profile-nav{
 	display:none;
 	background-color:white;
 	}
-	
+}
+
+/**LANDSCAPE**/
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+
+.main-nav {
+  width: 45%;
+}
+
+
+.main-nav ul li{
+	height:60px;
+	line-height:60px;
+}
 }

@@ -267,14 +267,14 @@ $(document).ready(function() {
                     element.html('');
                     $.each(list, function(i, od) {
                         if (!header) {
-                            element.append('Pedido en <b><span class="red cursor rest-name" id="' + od.get("Producto").get("Restaurante").id + '" title="Ver menú">' + od.get("Producto").get("Restaurante").get("Nombre") + '</span></b></br></br><div class="row element-wrapper-header text-center"><div class="col5">Producto</div><div class="col2"><span class="full">Cantidad</span><span class="mobile">Cant.</span></div><div class="col2"><span class="full">Precio</span><span class="mobile">Pre.</span></div><div class="col3">Subtotal</div></div><div class="details"></div>');
+                            element.append('</br>Pedido en <b><span class="red cursor rest-name" id="' + od.get("Producto").get("Restaurante").id + '" title="Ver menú">' + od.get("Producto").get("Restaurante").get("Nombre") + '</span></b></br></br><div class="row element-wrapper-header text-center"><div class="col5">Producto</div><div class="col2"><span class="full">Cantidad</span><span class="mobile">Cant.</span></div><div class="col2"><span class="full">Precio</span><span class="mobile">Pre.</span></div><div class="col3"><span class="mobile">Subt.</span><span class="full">Subtotal</span></div></div><div class="details"></div>');
                             header = true;
                         }
                         var quantity = od.get("Cantidad");
                         var price = od.get("PrecioUnitario");
                         var sub = (parseInt(quantity) * parseInt(price));
                         subtotal += sub;
-                        element.find('.details').append('<div class="row element-wrapper text-center"><div class="col5">' + od.get("Producto").get("Nombre") + '</div><div class="col2">' + quantity + '</div><div class="col2">' + price + '</div><div class="col3">₡' + sub + '</div></div>');
+                        element.find('.details').append('<div class="row element-wrapper text-center"><div class="col5">' + od.get("Producto").get("Nombre") + '</div><div class="col2">' + quantity + '</div><div class="col2">₡' + price + '</div><div class="col3">₡' + sub + '</div></div>');
                     });
                     var paymentType = 'Llegada';
                     if (Order.get("PagoOnline")) {
@@ -289,13 +289,19 @@ $(document).ready(function() {
                     var total = Order.get("Total");
                     var comment = Order.get("Comentario");
                     var address = Order.get("DetalleDireccion");
-                    element.append('<div class="row mobile"><div class="col5 red"><b>Comentario:</b></div><div class="col7">'+comment+'</div></div><div class="row mobile"><div class="col5 red"><b>Dirección de entrega:</b></div><div class="col7">'+address+'</div></div><div class="row mobile"><div class="col5 red"><b>Resumen de pago:</b> </div><div class="col7"><span>Pago: </span>'+ paymentType +'</br><span>Subtotal:</span> ₡'+ subtotal +'</br><span>Descuento:</span> ₡0 </br><span>Delivery:</span> '+ delivery +'</br><span>Total: ₡</span>'+ total +'</div></div>                                                       <div class="full row element-wrapper-header text-center"><div class="col4 ">Comentario</div><div class="col4">Dirección de entrega</div><div class="col4">Resumen de pago</div></div><div class="details-footer full"><div class="row element-wrapper text-center"><div class="col4">' +comment + '</div><div class="col4">' + address + '</div><div class="col4"><div class="row"><div class="col6">Pago:</div><div class="col6">' + paymentType + '</div></div><div class="row"><div class="col6">Subtotal:</div><div class="col6">₡' + subtotal + '</div></div><div class="row"><div class="col6">Descuento:</div><div class="col6">₡0</div></div><div class="row"><div class="col6">Delivery:</div><div class="col6">' + delivery + '</div></div><div class="row"><div class="col6"><b>Total:</b></div><div class="col6">₡' + total + '</div></div></div></div></div>');
+                    element.append('<div class="row mobile"><div class="col5 red"><b>Comentario:</b></div><div class="col7">'+comment+'</div></div><div class="row mobile"><div class="col5 red"><b>Dirección de entrega:</b></div><div class="col7">'+address+'</div></div><div class="row mobile"><div class="col5 red"><b>Resumen de pago:</b> </div><div class="col7"><span>Pago: </span>'+ paymentType +'</br><span>Subtotal:</span> ₡'+ subtotal +'</br><span>Descuento:</span> ₡0 </br><span>Delivery:</span> '+ delivery +'</br><span>Total: ₡</span>'+ total +'</div></br><i class="fa cursor close-order-mobile fa-chevron-up blue"></i></div>                                                       <div class="full row element-wrapper-header text-center"><div class="col4 ">Comentario</div><div class="col4">Dirección de entrega</div><div class="col4">Resumen de pago</div></div><div class="details-footer full"><div class="row element-wrapper text-center"><div class="col4">' +comment + '</div><div class="col4">' + address + '</div><div class="col4"><div class="row"><div class="col6">Pago:</div><div class="col6">' + paymentType + '</div></div><div class="row"><div class="col6">Subtotal:</div><div class="col6">₡' + subtotal + '</div></div><div class="row"><div class="col6">Descuento:</div><div class="col6">₡0</div></div><div class="row"><div class="col6">Delivery:</div><div class="col6">' + delivery + '</div></div><div class="row"><div class="col6"><b>Total:</b></div><div class="col6">₡' + total + '</div></div></div></div></div>');
 
                 }
             },
             error: function(object, error) {}
         });
     }
+
+$('html').on('click','.close-order-mobile', function(event) {
+        var parent =  $(event.target).parents('.element-wrapper');
+        var orderDetail = parent.find('.order-detail');
+          orderDetail.slideToggle();
+});
 
     $('#save-btn').click(function() {
         var telephone = $('#user-telephone').val();
