@@ -1,61 +1,3 @@
-/** {
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-}
-
-body{
-	margin: 0;
-}
-
-html{
-	font-family: 'Open Sans', sans-serif;
-}
-
-
-.main-nav {
-  background: #b71c1c;
-  height: 65px;
-  position: fixed;
-  box-shadow: 0 2px 3px rgba(0,0,0,.4);
-  color: white;
-  width: 100%;
-  margin-top: 0;
-opacity: 0.0;
-}
-
-.main-nav ul{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-.main-nav ul li{
-	list-style: none;
-	float: left;
-	width: 20%;
-	cursor: pointer;
-	height: 65px;
-}
-
-.main-nav ul li a{
-text-decoration: none;
-color: white;
-text-align: center;
-vertical-align: center;
-display: block;
-
-
-}
-
-.menu-responsive{
-	display: none;
-}**/
-
-
-
 #how-to{
 	text-align: center;
 	color: gray;
@@ -118,9 +60,10 @@ left: 85px;
 }
 
 #home{
+	
 background-size: cover;
 background-image: url(../img/food2.jpg);
-/*padding: 30% 0 0 0;*/
+
 
 }
 
@@ -162,6 +105,7 @@ h1{
 .title-wrapper{
 	width: 60%;
 	margin: auto;
+	margin-top:0;
 }
 
 .row{
@@ -192,46 +136,35 @@ margin:0;
 	position: absolute;
 	left: 5%;
 	top:28.5px;
-
-
-
-	
 }
 
 .btn-search{
 	background-color: #b71c1c;
 	color: white;
-
-
-		border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
 	position: relative;
-  top: 25%;
-	  cursor: pointer;
+  	top: 25%;
+	cursor: pointer;
 }
 
 .btn-search i{
-	display: none;
+display: none;
 }
 
 input{
 	width: 100%;
 	font-size: 1.1em;
 }
-
-
 .address-bar{
 	background:rgba(255,255,255,0.99);
 	margin: auto;
 	color:gray;
 	height: 100%;
-
-
 	border-bottom-left-radius: 5px;
 	border-top-left-radius: 5px;
 	position: relative;
   top: 25%;
-
 }
 
 .address-bar input{
@@ -246,11 +179,7 @@ input{
 }
 
 
-
-
-/**MEDIA QUERIES**/
-
-/* iPhone 4 ----------- */
+/**
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 
 .btn-search i{
@@ -266,3 +195,73 @@ input{
 
 
 }
+
+**/
+
+
+
+
+
+
+
+/** RESPONSIVE MENU **/
+/**LANDSCAPE AND PORTRAIT**/
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+	
+.btn-search span{
+	display:none;
+}
+
+.btn-search i{
+	display:block;
+	margin-top:5px;
+}
+
+.fp-tableCell{
+	display:inline;
+}
+
+.title-wrapper{
+	width:95%;
+	font-size:0.65em;
+	margin-top:0;
+}
+
+.find-restaurants-wrapper{
+	width:98%;
+	height:100px;
+}
+
+.row-search{
+	font-size: 0.6;
+	height: 60px;
+	width:96%;
+left:2%;
+top:5px;
+}
+
+input{
+	font-size: 0.7em;
+}
+
+
+
+}
+
+/**LANDSCAPE**/
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.title-wrapper{
+	margin-top:50px !important;
+}
+
+
+}
+
+
+/**PORTRAIT**/
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+
+}
+
+
