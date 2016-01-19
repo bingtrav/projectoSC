@@ -67,6 +67,11 @@ html{
 	background-color: white;
 }
 
+img{
+	max-width:100%;
+	height:auto;
+}
+
 
 .menu-responsive{
 	display: none;}
