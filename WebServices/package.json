@@ -1,0 +1,23 @@
+{
+  "name": "webservice",
+  "version": "1.0.0",
+  "description": "Web service de conexion entre la app y la base de datos, utilizando Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsalas0694/projectoSC.git"
+  },
+  "author": "SC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsalas0694/projectoSC/issues"
+  },
+  "homepage": "https://github.com/bsalas0694/projectoSC#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+     "mysql": "^2.5.4"
+  }
+}
