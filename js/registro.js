@@ -177,17 +177,32 @@ function loginUser(){
 }
 
     function registerUser() {
-        var user = new Parse.User();
-        user.set("username", $('#new-user-email').val());
-        user.set("password", $('#new-user-password').val());
-        user.set("email", $('#new-user-email').val());
-        user.set("Telefono", $('#user-telephone').val());
+        var usuario = $('#new-user-email').val();
+        var contrasena = $('#new-user-password').val();
+        var email = $('#new-user-email').val();
+        var telefono = $('#user-telephone').val();
+        var nombre = $('#user-name').val();
+        $.ajax({
+            method: "PUSH",
+            url: "http://localhost:3000/registrar",
+            data: { usuario: usuario, contrasena: contrasena, email: email, telefono: telefono, nombre: nombre },
+            success: function(){
+                cleanFields(false);
+                alert('Tu cuenta esta casi lista, ahora por favor revisa tu correo para verificar tu email ;)');
+                
+            }, 
+            error: function(error){
+                console.log(error);
+            }
+});
+        
+     
+        
         //user.set("NumeroIdentificacion", $('#user-identification').val());
-        user.set("Nombre", $('#user-name').val());
-        user.set("Activo",true);
-        user.set("Tipo",true);
+       // user.set("Activo",true);
+        //user.set("Tipo",true);
 
-        user.signUp(null, {
+       /** user.signUp(null, {
             success: function(user) {
                 cleanFields(false);
                 alert('Tu cuenta esta casi lista, ahora por favor revisa tu correo para verificar tu email ;)');
@@ -202,7 +217,7 @@ cleanFields(false);
                     }
                 }
             }
-        });
+        });**/
     }
 
     function cleanFields(type) {
