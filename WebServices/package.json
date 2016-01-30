@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/bsalas0694/projectoSC#readme",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.4",
-     "mysql": "^2.5.4"
+    "mysql": "^2.5.4"
   }
 }

@@ -44,9 +44,9 @@ $(document).ready(function() {
         if (telephone.val() === '') {
             setErrorMsg(telephone, 'Digita un número de teléfono', false);
             return false;
-        }else{
-            if(telephone.val().length<8){
-                 setErrorMsg(telephone, 'Digíta un número de teléfono válido', false);
+        } else {
+            if (telephone.val().length < 8) {
+                setErrorMsg(telephone, 'Digíta un número de teléfono válido', false);
                 return false;
             }
         }
@@ -112,22 +112,23 @@ $(document).ready(function() {
     });
 
     $('#login-btn').click(function() {
-validateLoginEnter();
+        validateLoginEnter();
     });
 
-$(document).keypress(function(e) {
-    if(e.keyCode===13){
-validateLoginEnter();}
-});
+    $(document).keypress(function(e) {
+        if (e.keyCode === 13) {
+            validateLoginEnter();
+        }
+    });
 
 
-function validateLoginEnter(){
-       // if (!validateLoginFields()) {
-         //   error = true;
+    function validateLoginEnter() {
+        // if (!validateLoginFields()) {
+        //   error = true;
         //} else {
-           loginUser();
+        loginUser();
         //}
-}
+    }
 
     $('input').focusin(function() {
         if (error) {
@@ -139,42 +140,51 @@ function validateLoginEnter(){
             });
             //error = false;
         }
-        if($(this).parents('.container').hasClass('register-container')){
-        	$('#msg-register').hide(100);
+        if ($(this).parents('.container').hasClass('register-container')) {
+            $('#msg-register').hide(100);
             $('#new-account-btn').show(100);
-        }else{
-        	$('#msg-login').hide(100);
+        } else {
+            $('#msg-login').hide(100);
             $('#login-btn').show(100);
         }
     });
 
 
-function loginUser(){
-      console.log(location.href);
-       console.log(window.location.search.substring(5));
-//Parse.User.logIn('c@c.com', 'ericsalas', {
-    Parse.User.logIn($('#user-email').val(), $('#user-password').val(), {
-  success: function(user) {
-    cleanFields(true);
-    if(window.location.search.substring(5)){
-        var menuPageId = store.get('menuPageId');
-      window.location.href = "menu.html?r="+menuPageId;   //OJO MOBILE
-    }else{
-   window.location.href = "perfil.html";}
-  //Parse.User.logOut();
+    function loginUser() {
+        var contrasena = $('#user-password').val();
+        var email = $('#user-email').val();
+        $.ajax({
+            method: "get",
+            url: "http://localhost:3000/login",
+            data: {
+                contrasena: contrasena,
+                email: email
+            },
+            statusCode: {
+                200: function(codigo) {
+                    console.log(codigo);
+                    cleanFields(true);
+                    if (window.location.search.substring(5)) {
+                        var menuPageId = store.get('menuPageId');
+                        window.location.href = "menu.html?r=" + menuPageId; //OJO MOBILE
+                    } else {
+                        window.location.href = "perfil.html";
+                    }
+                },
 
-  },
-  error: function(user, error) {
-  	if(error.code===101){
-  		error = true;
-  		setErrorMsg($('#user-email'),'Email o contraseña invalidos',true);
-  		setErrorMsg($('#user-password'),'Email o contraseña invalidos',true);
-  	}
-  }
-});
-
-
-}
+                203: function(codigo) {
+                    setErrorMsg($('#user-email'), 'Email o contraseña invalidos', true);
+                    setErrorMsg($('#user-password'), 'Email o contraseña invalidos', true);
+                }
+            },
+            success: function(){
+            store.set('validado', true);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
 
     function registerUser() {
         var usuario = $('#new-user-email').val();
@@ -183,32 +193,41 @@ function loginUser(){
         var telefono = $('#user-telephone').val();
         var nombre = $('#user-name').val();
         $.ajax({
-            method: "PUSH",
+            method: "post",
             url: "http://localhost:3000/registrar",
-            data: { usuario: usuario, contrasena: contrasena, email: email, telefono: telefono, nombre: nombre },
-            success: function(){
-                cleanFields(false);
-                alert('Tu cuenta esta casi lista, ahora por favor revisa tu correo para verificar tu email ;)');
-                
-            }, 
-            error: function(error){
+            data: {
+                usuario: usuario,
+                contrasena: contrasena,
+                email: email,
+                telefono: telefono,
+                nombre: nombre
+            },
+            statusCode: {
+                201: function(codigo) {
+                    cleanFields(false);
+                    alert('Tu cuenta esta casi lista, ahora por favor revisa tu correo para verificar tu email ;)');
+                },
+
+                203: function(codigo) {
+                    alert('Ya ese email existe en nuestra base de datos...');
+                }
+            },
+            error: function(error) {
                 console.log(error);
             }
-});
-        
-     
-        
+        });
+
         //user.set("NumeroIdentificacion", $('#user-identification').val());
-       // user.set("Activo",true);
+        // user.set("Activo",true);
         //user.set("Tipo",true);
 
-       /** user.signUp(null, {
+        /** user.signUp(null, {
             success: function(user) {
                 cleanFields(false);
                 alert('Tu cuenta esta casi lista, ahora por favor revisa tu correo para verificar tu email ;)');
             },
             error: function(user, error) {
-            	console.log(error);
+                console.log(error);
                if (error.code === 203) {
                     if(confirm('Ya ese email existe en nuestra base de datos, ¿quieres recuperar tu cuenta?'))
                     {
@@ -221,12 +240,12 @@ cleanFields(false);
     }
 
     function cleanFields(type) {
-    	                $('.element-wrapper').css({
-                    'border': '1px solid #e9e9e9'
-                });
-                $('.element-wrapper').find('.fa-column').css({
-                    'background-color': 'white'
-                });
+        $('.element-wrapper').css({
+            'border': '1px solid #e9e9e9'
+        });
+        $('.element-wrapper').find('.fa-column').css({
+            'background-color': 'white'
+        });
         if (!type) {
             $('#new-user-email').val('');
             $('#new-user-password').val('');
@@ -262,8 +281,8 @@ cleanFields(false);
                 $("body, html").animate({
                     scrollTop: $($('#show-login-btn')).offset().top
                 }, 5000);
-error = false;
-cleanFields(true);
+                error = false;
+                cleanFields(true);
             });
 
         });

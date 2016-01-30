@@ -1,45 +1,88 @@
-var express    = require("express");
- var mysql      = require('mysql');
- var connection = mysql.createConnection({
-   host     : 'localhost',
-   user     : 'root',
-   password : '',
-   database : 'DEV_DB'
- });
- var app = express();
- 
- connection.connect(function(err){
- if(!err) {
-     console.log("Database is connected ... \n\n");  
- } else {
-     console.log("Error connecting database ... \n\n");  
- }
- });
- 
+var express = require("express");
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'DEV_DB'
+});
+var app = express();
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // support encoded bodies
 
 
-app.put("/registrar", function(req,res){
+connection.connect(function(err) {
+    if (!err) {
+        console.log("Database is connected ... \n\n");
+    } else {
+        console.log("Error connecting database ... \n\n");
+    }
+});
 
 
 
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,POST');
+    res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+    next();
+});
+
+app.post("/registrar", function(req, res) {
+    var strQuery = 'Select ID from Usuario where Email = "' + req.body.email + '" and activo = 1 and emailverificado = 1';
+    connection.query(strQuery, function(err, rows) {
+        if (!err) {
+            if (rows.length === 0) {
+                var strQuery = 'INSERT into Usuario(Nombre, Email, EmailVerificado, Contrasena, Telefono1, Activo, Tipo) values ("' + req.body.nombre + '" , "' + req.body.email + '" , 1, "' + req.body.contrasena + '" , "' + req.body.telefono + '" , 1, 1' + ')';
+                connection.query(strQuery, function(err) {
+                    if (!err)
+                        res.sendStatus(201);
+                    else
+                        res.status(500).send(err);
+                });
+            } else {
+                res.sendStatus(203);
+            }
+        } else {
+            res.status(500).send(err);
+        }
+    });
+});
+
+app.get("/obtenerUsuario", function(req,res){
+var strQuery = 'Select nombre, email, tipo, telefono1 from Usuario where ID=' +req.query.id+ ' and activo = 1';
+connection.query(strQuery, function(err,rows){
+if(!err){
+  res.json(rows[0]);
+}else{
+     res.status(500).send(err);
+}
+});
 });
 
 
 
 
 
- app.get("/login",function(req,res){
-  var email = 'a@a.com';
-  var contrasena = '123';
-  var strQuery = 'SELECT ID from Usuario where emailverificado = 1 and activo = 1 and email = "'+email+'" and contrasena = "'+contrasena+ '"';
- connection.query(strQuery, function(err, rows, fields) {
- connection.end();
- console.log(rows);
-   if (!err)
-     console.log('The solution is: ', rows);
-   else
-     console.log('Error while performing Query.', err);
-   });
- });
- 
- app.listen(3000);
+
+app.get("/login", function(req, res) {
+    var strQuery = 'SELECT ID from Usuario where emailverificado = 1 and activo = 1 and email = "' + req.query.email + '" and contrasena = "' + req.query.contrasena + '"';
+    connection.query(strQuery, function(err, rows) {
+        if (!err){
+          console.log(rows.length);
+            if(rows.length === 1){
+res.sendStatus(200);
+            }else{
+               res.sendStatus(203);
+            }}
+        else{
+            res.status(500).send(err);}
+    });
+});
+
+app.listen(3000);

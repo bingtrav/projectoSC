@@ -29,24 +29,36 @@ $(document).ready(function() {
     }
 
     function setUserData() {
-        var currentUser = Parse.User.current();
+        var currentUser =  store.get('validado');
+
         if (currentUser) {
             $('#user-photo').attr('src', 'img/users/2Fv3SNguAW.jpg');
-            currentUser.fetch().then(function(user) {
-                $('#profile-user-name').text(user.get("Nombre"));
-                $('#user-email').val(user.get("email"));
-                if (user.get("Tipo")) {
+
+        $.ajax({
+            method: "get",
+            url: "http://localhost:3000/obtenerUsuario",
+            data: {
+                id: 1
+            },
+            success: function(usuario){
+$('#profile-user-name').text(usuario.nombre);
+$('#user-email').val(usuario.email);
+                if (usuario.tipo) {
                     userType = true;
                     $('#user-balance').val("¢1.500");
-                    $('#user-name').val(user.get("Nombre"));
-                    $('#user-telephone').val(user.get("Telefono"));
+                    $('#user-name').val(usuario.nombre);
+                    $('#user-telephone').val(usuario.telefono1);
                 } else {
                     $('.address, #save-btn').addClass('no-show');
                     $('.statistics').removeClass('no-show');
                     $('#user-balance').parents('.element-wrapper').addClass('no-show');
                     getRestaurantData(currentUser);
                 }
-            });
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
             $('#container-data').removeClass('no-show');
         } else {
             window.location.href = "registro.html";
