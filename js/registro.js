@@ -161,14 +161,15 @@ $(document).ready(function() {
                 email: email
             },
             statusCode: {
-                200: function(codigo) {
-                    console.log(codigo);
+                200: function(id) {
+                    store.set('validado', true);
+                    store.set('idUsuario',id);
                     cleanFields(true);
                     if (window.location.search.substring(5)) {
                         var menuPageId = store.get('menuPageId');
                         window.location.href = "menu.html?r=" + menuPageId; //OJO MOBILE
                     } else {
-                        window.location.href = "perfil.html";
+                       window.location.href = "perfil.html";
                     }
                 },
 
@@ -177,9 +178,10 @@ $(document).ready(function() {
                     setErrorMsg($('#user-password'), 'Email o contraseña invalidos', true);
                 }
             },
-            success: function(){
+            /**success: function(msg){
             store.set('validado', true);
-            },
+              console.log(msg);
+            },**/
             error: function(error) {
                 console.log(error);
             }

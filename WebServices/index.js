@@ -65,18 +65,13 @@ if(!err){
 });
 });
 
-
-
-
-
-
 app.get("/login", function(req, res) {
     var strQuery = 'SELECT ID from Usuario where emailverificado = 1 and activo = 1 and email = "' + req.query.email + '" and contrasena = "' + req.query.contrasena + '"';
     connection.query(strQuery, function(err, rows) {
         if (!err){
           console.log(rows.length);
             if(rows.length === 1){
-res.sendStatus(200);
+res.status(200).send(rows[0].ID+"");
             }else{
                res.sendStatus(203);
             }}

@@ -30,6 +30,7 @@ $(document).ready(function() {
 
     function setUserData() {
         var currentUser =  store.get('validado');
+        var idUsuario = store.get('idUsuario');
 
         if (currentUser) {
             $('#user-photo').attr('src', 'img/users/2Fv3SNguAW.jpg');
@@ -38,7 +39,7 @@ $(document).ready(function() {
             method: "get",
             url: "http://localhost:3000/obtenerUsuario",
             data: {
-                id: 1
+                id: idUsuario
             },
             success: function(usuario){
 $('#profile-user-name').text(usuario.nombre);
