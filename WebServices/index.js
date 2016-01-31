@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); // support encoded bodies
 
-
 connection.connect(function(err) {
     if (!err) {
         console.log("Database is connected ... \n\n");
