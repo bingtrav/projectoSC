@@ -155,7 +155,7 @@ $(document).ready(function() {
         var email = $('#user-email').val();
         $.ajax({
             method: "get",
-            url: "//ec2-52-10-12-157.us-west-2.compute.amazonaws.com:3000/login",
+            url: "http://ec2-52-10-12-157.us-west-2.compute.amazonaws.com:3000/login",
             data: {
                 contrasena: contrasena,
                 email: email
@@ -196,7 +196,7 @@ $(document).ready(function() {
         var nombre = $('#user-name').val();
         $.ajax({
             method: "post",
-            url: "//ec2-52-10-12-157.us-west-2.compute.amazonaws.com:3000/registrar",
+            url: "http://ec2-52-10-12-157.us-west-2.compute.amazonaws.com:3000/registrar",
             data: {
                 usuario: usuario,
                 contrasena: contrasena,
