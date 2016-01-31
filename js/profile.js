@@ -37,7 +37,7 @@ $(document).ready(function() {
 
         $.ajax({
             method: "get",
-            url: "http://localhost:3000/obtenerUsuario",
+            url: "http://ec2-52-10-12-157.us-west-2.compute.amazonaws.com:3000/obtenerUsuario",
             data: {
                 id: idUsuario
             },
