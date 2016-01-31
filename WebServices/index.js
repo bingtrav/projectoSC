@@ -4,7 +4,8 @@ var connection = mysql.createConnection({
     host: 'dev.clcii76ge9zg.us-west-2.rds.amazonaws.com',
     user: 'Dev',
     password: 'ericsalas',
-    database: 'DEV_DB'
+    database: 'DEV_DB',
+port: 3306
 });
 var app = express();
 
@@ -32,6 +33,14 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
     next();
 });
+
+
+app.get("/", function(req,res){
+
+res.send("Holis you bitch!");
+
+});
+
 
 app.post("/registrar", function(req, res) {
     var strQuery = 'Select ID from Usuario where Email = "' + req.body.email + '" and activo = 1 and emailverificado = 1';
